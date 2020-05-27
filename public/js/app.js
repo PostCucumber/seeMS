@@ -1975,24 +1975,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     pickingElement: Boolean,
-    elements: Array
+    elements: Array,
+    chosenElement: String
   },
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -19708,6 +19695,8 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "w-full" }, [
+          _c("h2", [_vm._v("Chosen element: " + _vm._s(_vm.chosenElement))]),
+          _vm._v(" "),
           _c("h1", { staticClass: "w-full" }, [_vm._v("Click to add element")]),
           _vm._v(" "),
           _c(
@@ -19738,7 +19727,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "relative flex mx-auto items-center justify-center bg-gray-100 rounded shadow-lg"
+                      "relative flex mx-auto w-2/3 items-center justify-center bg-gray-100 rounded shadow-lg"
                   },
                   [
                     _c(
@@ -19755,7 +19744,7 @@ var render = function() {
                       [_vm._v("X")]
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "w-auto mx-auto h-auto p-10" }, [
+                    _c("div", { staticClass: "w-full mx-auto h-auto p-10" }, [
                       _vm._m(0),
                       _vm._v(" "),
                       _c(
@@ -19764,11 +19753,23 @@ var render = function() {
                         _vm._l(_vm.elements, function(element, index) {
                           return _c(
                             "div",
-                            { key: index, staticClass: "w-1/2" },
+                            {
+                              key: index,
+                              staticClass: "w-1/2",
+                              on: {
+                                click: function($event) {
+                                  _vm.pickingElement = !_vm.pickingElement
+                                  _vm.chosenElement = _vm.elements[index]
+                                }
+                              }
+                            },
                             [
                               _c(
                                 "div",
-                                { staticClass: "bg-gray-200 m-4 p-4 rounded" },
+                                {
+                                  staticClass:
+                                    "bg-gray-200 m-4 p-4 rounded cursor-pointer"
+                                },
                                 [_vm._v(_vm._s(_vm.elements[index]))]
                               )
                             ]
@@ -19777,7 +19778,21 @@ var render = function() {
                         0
                       ),
                       _vm._v(" "),
-                      _vm._m(1)
+                      _c("div", [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "rounded-full bg-blue-400 px-4 py-2 text-gray-100",
+                            on: {
+                              click: function($event) {
+                                _vm.pickingElement = !_vm.pickingElement
+                              }
+                            }
+                          },
+                          [_vm._v("Add")]
+                        )
+                      ])
                     ])
                   ]
                 )
@@ -19794,18 +19809,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [_c("h2", [_vm._v("Choose Element")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "button",
-        { staticClass: "rounded-full bg-blue-400 px-4 py-2 text-gray-100" },
-        [_vm._v("Add")]
-      )
-    ])
   }
 ]
 render._withStripped = true
