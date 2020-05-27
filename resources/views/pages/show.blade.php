@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <section class="mx-20">
+    <section class="mx-20 mt-10">
         @foreach($pages as $page)
             <div>
                 <h2>{{ $page->title }}</h2>
