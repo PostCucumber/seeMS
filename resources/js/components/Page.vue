@@ -7,6 +7,7 @@
 <script>
     import columns from './elements/Columns'
     import SearchBox from './elements/SearchBox'
+    import navigation from './elements/Navigation'
 
     export default {
         mounted() {
@@ -14,7 +15,8 @@
         },
         components: {
             columns,
-            SearchBox 
+            SearchBox,
+            navigation 
         },
         data: function() {
             return {

@@ -2,9 +2,6 @@
     <div class="flex">
         <div class="w-full flex flex-wrap items-center h-screen text-center mx-auto">
             <div class="w-full">
-                <h2>Chosen element: 
-                    <span v-for="(element, index) in chosenElements" v-bind:key="index">{{ chosenElements[index] }}, </span>
-                </h2>
                 <h1 class="w-full">Click to add element</h1>
                 <button @click="pickingElement = !pickingElement" class="flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg mx-auto">
                     +
@@ -26,6 +23,11 @@
                     </div>
                 </div>    
             </div>
+        </div>
+        <div class="absolute bottom-0 w-full p-4">
+            <h2>Chosen elements: 
+                    <span v-for="(element, index) in chosenElements" v-bind:key="index">{{ chosenElements[index] }}, </span>
+            </h2>
         </div>
     </div>
 </template>
