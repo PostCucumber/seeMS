@@ -1948,6 +1948,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _elements_Columns__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements/Columns */ "./resources/js/components/elements/Columns.vue");
+/* harmony import */ var _elements_SearchBox__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./elements/SearchBox */ "./resources/js/components/elements/SearchBox.vue");
+/* harmony import */ var _elements_Navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./elements/Navigation */ "./resources/js/components/elements/Navigation.vue");
 //
 //
 //
@@ -1982,9 +1985,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     elements: Array
+  },
+  components: {
+    columns: _elements_Columns__WEBPACK_IMPORTED_MODULE_0__["default"],
+    SearchBox: _elements_SearchBox__WEBPACK_IMPORTED_MODULE_1__["default"],
+    navigation: _elements_Navigation__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -19719,135 +19731,146 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex" }, [
-    _c(
-      "div",
-      {
-        staticClass:
-          "w-full flex flex-wrap items-center h-screen text-center mx-auto"
-      },
-      [
-        _c("div", { staticClass: "w-full" }, [
-          _c("h1", { staticClass: "w-full" }, [_vm._v("Click to add element")]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass:
-                "flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg mx-auto",
-              on: {
-                click: function($event) {
-                  _vm.pickingElement = !_vm.pickingElement
-                }
-              }
-            },
-            [_vm._v("\n                +\n            ")]
-          )
-        ]),
-        _vm._v(" "),
-        _vm.pickingElement
-          ? _c(
-              "div",
+  return _c(
+    "div",
+    { staticClass: "flex" },
+    [
+      _vm._l(_vm.chosenElements, function(component, index) {
+        return _c(_vm.chosenElements[index], { key: index, tag: "component" })
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "w-full flex flex-wrap items-center h-screen text-center mx-auto"
+        },
+        [
+          _c("div", { staticClass: "w-full" }, [
+            _c("h1", { staticClass: "w-full" }, [
+              _vm._v("Click to add element")
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
               {
                 staticClass:
-                  "absolute top-0 right-0 bottom-0 left-0 z-40 flex items-center w-full h-screen",
-                staticStyle: { "background-color": "rgba(0,0,0,0.25)" }
+                  "flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg mx-auto",
+                on: {
+                  click: function($event) {
+                    _vm.pickingElement = !_vm.pickingElement
+                  }
+                }
               },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "relative flex mx-auto w-2/3 items-center justify-center bg-gray-100 rounded shadow-lg"
-                  },
-                  [
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "absolute top-0 right-0 py-4 px-5 font-bold focus:outline-none",
-                        on: {
-                          click: function($event) {
-                            _vm.pickingElement = !_vm.pickingElement
-                          }
-                        }
-                      },
-                      [_vm._v("X")]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "w-full mx-auto h-auto p-10" }, [
-                      _vm._m(0),
-                      _vm._v(" "),
+              [_vm._v("\n                +\n            ")]
+            )
+          ]),
+          _vm._v(" "),
+          _vm.pickingElement
+            ? _c(
+                "div",
+                {
+                  staticClass:
+                    "absolute top-0 right-0 bottom-0 left-0 z-40 flex items-center w-full h-screen",
+                  staticStyle: { "background-color": "rgba(0,0,0,0.25)" }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "relative flex mx-auto w-2/3 items-center justify-center bg-gray-100 rounded shadow-lg"
+                    },
+                    [
                       _c(
-                        "div",
-                        { staticClass: "flex flex-wrap mx-auto py-8" },
-                        _vm._l(_vm.elements, function(element, index) {
-                          return _c(
-                            "div",
+                        "button",
+                        {
+                          staticClass:
+                            "absolute top-0 right-0 py-4 px-5 font-bold focus:outline-none",
+                          on: {
+                            click: function($event) {
+                              _vm.pickingElement = !_vm.pickingElement
+                            }
+                          }
+                        },
+                        [_vm._v("X")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "w-full mx-auto h-auto p-10" }, [
+                        _vm._m(0),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "flex flex-wrap mx-auto py-8" },
+                          _vm._l(_vm.elements, function(element, index) {
+                            return _c(
+                              "div",
+                              {
+                                key: index,
+                                staticClass: "w-1/2",
+                                on: {
+                                  click: function($event) {
+                                    _vm.pickingElement = !_vm.pickingElement
+                                    _vm.chosenElements.push(_vm.elements[index])
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "bg-gray-200 m-4 p-4 rounded cursor-pointer"
+                                  },
+                                  [_vm._v(_vm._s(_vm.elements[index]))]
+                                )
+                              ]
+                            )
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c("div", [
+                          _c(
+                            "button",
                             {
-                              key: index,
-                              staticClass: "w-1/2",
+                              staticClass:
+                                "rounded-full bg-blue-400 px-4 py-2 text-gray-100",
                               on: {
                                 click: function($event) {
                                   _vm.pickingElement = !_vm.pickingElement
-                                  _vm.chosenElements.push(_vm.elements[index])
                                 }
                               }
                             },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "bg-gray-200 m-4 p-4 rounded cursor-pointer"
-                                },
-                                [_vm._v(_vm._s(_vm.elements[index]))]
-                              )
-                            ]
+                            [_vm._v("Add")]
                           )
-                        }),
-                        0
-                      ),
-                      _vm._v(" "),
-                      _c("div", [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "rounded-full bg-blue-400 px-4 py-2 text-gray-100",
-                            on: {
-                              click: function($event) {
-                                _vm.pickingElement = !_vm.pickingElement
-                              }
-                            }
-                          },
-                          [_vm._v("Add")]
-                        )
+                        ])
                       ])
-                    ])
-                  ]
-                )
-              ]
-            )
-          : _vm._e()
-      ]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "absolute bottom-0 w-full p-4" }, [
-      _c(
-        "h2",
-        [
-          _vm._v("Chosen elements: \n                "),
-          _vm._l(_vm.chosenElements, function(element, index) {
-            return _c("span", { key: index }, [
-              _vm._v(_vm._s(_vm.chosenElements[index]) + ", ")
-            ])
-          })
-        ],
-        2
-      )
-    ])
-  ])
+                    ]
+                  )
+                ]
+              )
+            : _vm._e()
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "absolute bottom-0 w-full p-4" }, [
+        _c(
+          "h2",
+          [
+            _vm._v("Chosen elements: \n                "),
+            _vm._l(_vm.chosenElements, function(element, index) {
+              return _c("span", { key: index }, [
+                _vm._v(_vm._s(_vm.chosenElements[index]) + ", ")
+              ])
+            })
+          ],
+          2
+        )
+      ])
+    ],
+    2
+  )
 }
 var staticRenderFns = [
   function() {

@@ -1,5 +1,6 @@
 <template>
     <div class="flex">
+        <component v-for="(component, index) in chosenElements" v-bind:key="index" :is="chosenElements[index]" />
         <div class="w-full flex flex-wrap items-center h-screen text-center mx-auto">
             <div class="w-full">
                 <h1 class="w-full">Click to add element</h1>
@@ -33,9 +34,18 @@
 </template>
 
 <script>
+    import columns from './elements/Columns'
+    import SearchBox from './elements/SearchBox'
+    import navigation from './elements/Navigation'
+
     export default {
         props: {
             elements: Array,
+        },
+        components: {
+            columns,
+            SearchBox,
+            navigation 
         },
         data() {
             return {
