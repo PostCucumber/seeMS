@@ -1,10 +1,6 @@
 <template>
     <div>
-        <!-- <component is="search-box"/> -->
-        <!-- <component is="columns"/> -->
-        <component v-for="i in componentCount" v-bind:key="i" :is="components[i-1]" />
-        <!-- <component :is="components[0]"></component> -->
-        <!-- <component :is="components[1]"></component> -->
+        <component v-for="(component, index) in components" v-bind:key="index" :is="components[index]" />
     </div>
 </template>
 
@@ -26,7 +22,7 @@
             };
         },
         props: {
-            componentCount: Number
+            components: Array
         }
     }
 </script>

@@ -1959,10 +1959,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1979,7 +1975,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   props: {
-    componentCount: Number
+    components: Array
   }
 });
 
@@ -19723,8 +19719,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(_vm.componentCount, function(i) {
-      return _c(_vm.components[i - 1], { key: i, tag: "component" })
+    _vm._l(_vm.components, function(component, index) {
+      return _c(_vm.components[index], { key: index, tag: "component" })
     }),
     1
   )
