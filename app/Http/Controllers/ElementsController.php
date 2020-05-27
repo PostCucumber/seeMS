@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PagesController extends Controller
+class ElementsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,7 @@ class PagesController extends Controller
      */
     public function index()
     {
-        $pages = $this->getPages();
-        return view('pages.show', compact('pages'));
+        //
     }
 
     /**
@@ -44,10 +43,9 @@ class PagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Elements $elements, Page $page)
+    public function show($id)
     {
-        // take the page and elements and display them in the correct order/location on the screen
-        return view('pages.show', compact($page));
+        //
     }
 
     /**
@@ -71,11 +69,6 @@ class PagesController extends Controller
     public function update(Request $request, $id)
     {
         //
-    }
-
-    public function getPages()
-    {
-        return \App\Page::all();
     }
 
     /**
