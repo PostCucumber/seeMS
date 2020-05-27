@@ -71,6 +71,11 @@ class ElementsController extends Controller
         //
     }
 
+    public function getElements ()
+    {
+        return \App\Element::all();
+    }
+
     /**
      * Remove the specified resource from storage.
      *

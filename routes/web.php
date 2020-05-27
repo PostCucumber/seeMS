@@ -16,10 +16,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/builder', function () {
-    return view('page-builder');
-});
-
+Route::get('/builder/{id}', 'PagesController@builder');
 Route::get('/pages', 'PagesController@index');
 Route::get('/pages/{id}', 'PagesController@show');
 

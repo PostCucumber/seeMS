@@ -3,6 +3,7 @@
         <div class="w-full flex flex-wrap items-center h-screen text-center mx-auto">
             <div class="w-full">
                 <h1 class="w-full">Click to add element</h1>
+                <h2>{{ elements }}</h2>
                 <button @click="pickingElement = !pickingElement" class="flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg mx-auto">
                     +
                 </button>
@@ -14,10 +15,10 @@
                         <div><h2>Choose Element</h2></div>
                         <div class="flex flex-wrap mx-auto py-8">
                             <div class="w-1/2">
-                                <div class="bg-gray-200 m-4 p-4 rounded">Element</div>
+                                <div class="bg-gray-200 m-4 p-4 rounded"><slot></slot></div>
                             </div>
                             <div class="w-1/2">
-                                <div class="bg-gray-200 m-4 p-4 rounded">Element</div>
+                                <div class="bg-gray-200 m-4 p-4 rounded"><slot></slot></div>
                             </div>
                             <div class="w-1/2">
                                 <div class="bg-gray-200 m-4 p-4 rounded">Element</div>
@@ -45,7 +46,8 @@
 <script>
     export default {
         props: {
-            pickingElement: Boolean
+            pickingElement: Boolean,
+            elements: String
         },
         mounted() {
             console.log('Component mounted.')

@@ -5,8 +5,8 @@
 </template>
 
 <script>
-    import columns from './Columns'
-    import SearchBox from './SearchBox'
+    import columns from './elements/Columns'
+    import SearchBox from './elements/SearchBox'
 
     export default {
         mounted() {
@@ -18,7 +18,6 @@
         },
         data: function() {
             return {
-                components: ['columns', 'search-box']
             };
         },
         props: {

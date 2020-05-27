@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Page;
+use App\Element;
 
 class PagesController extends Controller
 {
@@ -48,7 +49,7 @@ class PagesController extends Controller
     public function show(Page $page)
     {
         // take the page and elements and display them in the correct order/location on the screen
-        return view('pages.show', compact($page));
+        return view('pages.show', compact('page'));
     }
 
     /**
@@ -74,9 +75,20 @@ class PagesController extends Controller
         //
     }
 
+    public function builder (Page $page)
+    {
+        $elements = $this->getElements();
+        return view('page-builder', compact('elements'));
+    }
+
     public function getPages()
     {
         return \App\Page::all();
+    }
+
+    public function getElements()
+    {
+        return \App\Element::all();
     }
 
     /**
