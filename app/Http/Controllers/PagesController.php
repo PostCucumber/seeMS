@@ -13,7 +13,7 @@ class PagesController extends Controller
      */
     public function index()
     {
-        $pages = \App\Page::all();
+        $pages = $this->getPages();
         return view('pages.show', compact('pages'));
     }
 
@@ -70,6 +70,11 @@ class PagesController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function getPages()
+    {
+        return \App\Page::all();
     }
 
     /**
