@@ -3,7 +3,7 @@
     <section class="mx-20 mt-10">
         @foreach($pages as $page)
             <div class="my-4">
-                <h2>{{ $page->title }}</h2>
+                <h2 class="mb-2">{{ $page->title }}</h2>
                 <p>{{ $page->content }}</p>
             </div>    
         @endforeach
