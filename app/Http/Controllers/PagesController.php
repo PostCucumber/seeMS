@@ -43,9 +43,9 @@ class PagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Page $page)
     {
-        //
+        return view('pages.show', compact($page));
     }
 
     /**

@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('/builder', function () {
     return view('page-builder');
 });
+
+Route::get('/pages/{id}', 'PagesController@show');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
