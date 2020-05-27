@@ -13,7 +13,8 @@ class PagesController extends Controller
      */
     public function index()
     {
-        return view('pages.show');
+        $pages = \App\Page::all();
+        return view('pages.show', compact('pages'));
     }
 
     /**
