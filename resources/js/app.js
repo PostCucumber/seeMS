@@ -20,6 +20,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('page-builder', require('./components/PageBuilder.vue').default);
+Vue.component('columns', require('./components/Columns.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
