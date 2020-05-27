@@ -1986,6 +1986,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -19858,10 +19861,14 @@ var render = function() {
         _c(
           "h2",
           [
-            _vm._v("Chosen elements: \n                "),
+            _vm._v("\n            Chosen elements: \n            "),
             _vm._l(_vm.chosenElements, function(element, index) {
               return _c("span", { key: index }, [
-                _vm._v(_vm._s(_vm.chosenElements[index]) + ", ")
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.chosenElements[index]) +
+                    ", \n            "
+                )
               ])
             })
           ],

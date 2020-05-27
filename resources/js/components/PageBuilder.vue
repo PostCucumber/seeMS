@@ -26,8 +26,11 @@
             </div>
         </div>
         <div class="absolute bottom-0 w-full p-4">
-            <h2>Chosen elements: 
-                    <span v-for="(element, index) in chosenElements" v-bind:key="index">{{ chosenElements[index] }}, </span>
+            <h2>
+                Chosen elements: 
+                <span v-for="(element, index) in chosenElements" v-bind:key="index">
+                    {{ chosenElements[index] }}, 
+                </span>
             </h2>
         </div>
     </div>
