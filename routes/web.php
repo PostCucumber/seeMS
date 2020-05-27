@@ -21,6 +21,7 @@ Route::get('/builder', function () {
 });
 
 Route::get('/pages', 'PagesController@index');
+Route::get('/pages/{id}', 'PagesController@show');
 
 Auth::routes();
 

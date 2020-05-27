@@ -1,6 +1,7 @@
 <template>
     <div>
-        <component v-for="i in components" v-bind:key="i" v-bind:is="components[i]"></component>
+        <columns></columns>
+        <!-- <component v-for="i in components" v-bind:key="i" v-bind:is="components[i]"></component> -->
     </div>
 </template>
 

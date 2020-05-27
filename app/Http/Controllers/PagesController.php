@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Page;
 
 class PagesController extends Controller
 {
@@ -14,7 +15,7 @@ class PagesController extends Controller
     public function index()
     {
         $pages = $this->getPages();
-        return view('pages.show', compact('pages'));
+        return view('pages.index', compact('pages'));
     }
 
     /**
@@ -44,7 +45,7 @@ class PagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Elements $elements, Page $page)
+    public function show(Page $page)
     {
         // take the page and elements and display them in the correct order/location on the screen
         return view('pages.show', compact($page));
