@@ -2,10 +2,20 @@
 @section('content')
 
     <page-builder
-        elements="{{ $elements }}"
+        {{-- elements="{{ $elements }}" --}}
+        v-bind:elements= "[
+            @foreach($elements as $element)
+                '{{ $element->name }}',
+            @endforeach
+        ]"
+        {{-- elements="
+            @foreach($elements as $element)
+                {{ $element->name }}
+            @endforeach
+        " --}}
     >
-        @foreach($elements as $element)
+        {{-- @foreach($elements as $element)
             {{ $element->name }}
-        @endforeach
+        @endforeach --}}
     </page-builder>
 @endsection

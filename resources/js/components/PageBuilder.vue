@@ -15,10 +15,10 @@
                         <div><h2>Choose Element</h2></div>
                         <div class="flex flex-wrap mx-auto py-8">
                             <div class="w-1/2">
-                                <div class="bg-gray-200 m-4 p-4 rounded"><slot></slot></div>
+                                <div class="bg-gray-200 m-4 p-4 rounded"></div>
                             </div>
                             <div class="w-1/2">
-                                <div class="bg-gray-200 m-4 p-4 rounded"><slot></slot></div>
+                                <div class="bg-gray-200 m-4 p-4 rounded"></div>
                             </div>
                             <div class="w-1/2">
                                 <div class="bg-gray-200 m-4 p-4 rounded">Element</div>

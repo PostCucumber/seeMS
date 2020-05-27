@@ -19758,43 +19758,7 @@ var render = function() {
                       [_vm._v("X")]
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "w-auto mx-auto h-auto p-10" }, [
-                      _vm._m(0),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "flex flex-wrap mx-auto py-8" },
-                        [
-                          _c("div", { staticClass: "w-1/2" }, [
-                            _c(
-                              "div",
-                              { staticClass: "bg-gray-200 m-4 p-4 rounded" },
-                              [_vm._t("default")],
-                              2
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "w-1/2" }, [
-                            _c(
-                              "div",
-                              { staticClass: "bg-gray-200 m-4 p-4 rounded" },
-                              [_vm._t("default")],
-                              2
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(1),
-                          _vm._v(" "),
-                          _vm._m(2),
-                          _vm._v(" "),
-                          _vm._m(3),
-                          _vm._v(" "),
-                          _vm._m(4)
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm._m(5)
-                    ])
+                    _vm._m(0)
                   ]
                 )
               ]
@@ -19809,58 +19773,50 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h2", [_vm._v("Choose Element")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-1/2" }, [
-      _c("div", { staticClass: "bg-gray-200 m-4 p-4 rounded" }, [
-        _vm._v("Element")
+    return _c("div", { staticClass: "w-auto mx-auto h-auto p-10" }, [
+      _c("div", [_c("h2", [_vm._v("Choose Element")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex flex-wrap mx-auto py-8" }, [
+        _c("div", { staticClass: "w-1/2" }, [
+          _c("div", { staticClass: "bg-gray-200 m-4 p-4 rounded" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-1/2" }, [
+          _c("div", { staticClass: "bg-gray-200 m-4 p-4 rounded" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-1/2" }, [
+          _c("div", { staticClass: "bg-gray-200 m-4 p-4 rounded" }, [
+            _vm._v("Element")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-1/2" }, [
+          _c("div", { staticClass: "bg-gray-200 m-4 p-4 rounded" }, [
+            _vm._v("Element")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-1/2" }, [
+          _c("div", { staticClass: "bg-gray-200 m-4 p-4 rounded" }, [
+            _vm._v("Element")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-1/2" }, [
+          _c("div", { staticClass: "bg-gray-200 m-4 p-4 rounded" }, [
+            _vm._v("Element")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c(
+          "button",
+          { staticClass: "rounded-full bg-blue-400 px-4 py-2 text-gray-100" },
+          [_vm._v("Add")]
+        )
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-1/2" }, [
-      _c("div", { staticClass: "bg-gray-200 m-4 p-4 rounded" }, [
-        _vm._v("Element")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-1/2" }, [
-      _c("div", { staticClass: "bg-gray-200 m-4 p-4 rounded" }, [
-        _vm._v("Element")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-1/2" }, [
-      _c("div", { staticClass: "bg-gray-200 m-4 p-4 rounded" }, [
-        _vm._v("Element")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "button",
-        { staticClass: "rounded-full bg-blue-400 px-4 py-2 text-gray-100" },
-        [_vm._v("Add")]
-      )
     ])
   }
 ]
