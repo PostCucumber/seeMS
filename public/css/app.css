@@ -18125,6 +18125,26 @@ video {
   transition-delay: 1000ms;
 }
 
+h1 {
+  font-size: 3rem;
+  font-weight: 200;
+}
+
+h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
 @media (min-width: 640px) {
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;

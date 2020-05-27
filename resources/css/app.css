@@ -3,3 +3,23 @@
 @tailwind components;
 
 @tailwind utilities;
+
+h1 {
+    @apply text-5xl;
+    @apply font-thin;
+}
+
+h2 {
+    @apply text-3xl;
+    @apply font-semibold;
+}
+
+h3 {
+    @apply text-2xl;
+    @apply font-thin;
+}
+
+h4 {
+    @apply text-xl;
+    @apply font-semibold;
+}
