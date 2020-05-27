@@ -3,7 +3,6 @@
         <div class="w-full flex flex-wrap items-center h-screen text-center mx-auto">
             <div class="w-full">
                 <h1 class="w-full">Click to add element</h1>
-                <h2>{{ elements }}</h2>
                 <button @click="pickingElement = !pickingElement" class="flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg mx-auto">
                     +
                 </button>
@@ -14,13 +13,13 @@
                     <div class="w-auto mx-auto h-auto p-10">
                         <div><h2>Choose Element</h2></div>
                         <div class="flex flex-wrap mx-auto py-8">
-                            <div class="w-1/2">
+                            <div v-for="(element, index) in elements" v-bind:key="index" class="w-1/2">
+                                <div class="bg-gray-200 m-4 p-4 rounded">{{ elements[index] }}</div>
+                            </div>
+                            <!-- <div class="w-1/2">
                                 <div class="bg-gray-200 m-4 p-4 rounded"></div>
                             </div>
                             <div class="w-1/2">
-                                <div class="bg-gray-200 m-4 p-4 rounded"></div>
-                            </div>
-                            <div class="w-1/2">
                                 <div class="bg-gray-200 m-4 p-4 rounded">Element</div>
                             </div>
                             <div class="w-1/2">
@@ -31,7 +30,7 @@
                             </div>
                             <div class="w-1/2">
                                 <div class="bg-gray-200 m-4 p-4 rounded">Element</div>
-                            </div>
+                            </div> -->
                         </div>
                         <div>
                             <button class="rounded-full bg-blue-400 px-4 py-2 text-gray-100">Add</button>
@@ -47,7 +46,7 @@
     export default {
         props: {
             pickingElement: Boolean,
-            elements: String
+            elements: Array
         },
         mounted() {
             console.log('Component mounted.')
