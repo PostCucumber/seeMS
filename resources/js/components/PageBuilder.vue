@@ -2,7 +2,9 @@
     <div class="flex">
         <div class="w-full flex flex-wrap items-center h-screen text-center mx-auto">
             <div class="w-full">
-                <h2>Chosen element: {{ chosenElement }}</h2>
+                <h2>Chosen element: 
+                    <span v-for="(element, index) in chosenElements" v-bind:key="index">{{ chosenElements[index] }}, </span>
+                </h2>
                 <h1 class="w-full">Click to add element</h1>
                 <button @click="pickingElement = !pickingElement" class="flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg mx-auto">
                     +
@@ -14,7 +16,7 @@
                     <div class="w-full mx-auto h-auto p-10">
                         <div><h2>Choose Element</h2></div>
                         <div class="flex flex-wrap mx-auto py-8">
-                            <div @click="pickingElement = !pickingElement; chosenElement = elements[index]" v-for="(element, index) in elements" v-bind:key="index" class="w-1/2">
+                            <div @click="pickingElement = !pickingElement; chosenElements.push(elements[index])" v-for="(element, index) in elements" v-bind:key="index" class="w-1/2">
                                 <div class="bg-gray-200 m-4 p-4 rounded cursor-pointer">{{ elements[index] }}</div>
                             </div>
                         </div>
@@ -31,9 +33,13 @@
 <script>
     export default {
         props: {
-            pickingElement: Boolean,
             elements: Array,
-            chosenElement: String
+        },
+        data() {
+            return {
+                pickingElement: false,
+                chosenElements: []
+            }
         },
         mounted() {
             console.log('Component mounted.')

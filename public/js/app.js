@@ -1975,11 +1975,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    pickingElement: Boolean,
-    elements: Array,
-    chosenElement: String
+    elements: Array
+  },
+  data: function data() {
+    return {
+      pickingElement: false,
+      chosenElements: []
+    };
   },
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -19695,7 +19701,18 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "w-full" }, [
-          _c("h2", [_vm._v("Chosen element: " + _vm._s(_vm.chosenElement))]),
+          _c(
+            "h2",
+            [
+              _vm._v("Chosen element: \n                "),
+              _vm._l(_vm.chosenElements, function(element, index) {
+                return _c("span", { key: index }, [
+                  _vm._v(_vm._s(_vm.chosenElements[index]) + ", ")
+                ])
+              })
+            ],
+            2
+          ),
           _vm._v(" "),
           _c("h1", { staticClass: "w-full" }, [_vm._v("Click to add element")]),
           _vm._v(" "),
@@ -19759,7 +19776,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   _vm.pickingElement = !_vm.pickingElement
-                                  _vm.chosenElement = _vm.elements[index]
+                                  _vm.chosenElements.push(_vm.elements[index])
                                 }
                               }
                             },
