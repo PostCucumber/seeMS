@@ -1,24 +1,32 @@
 <template>
     <div>
-        <columns></columns>
-        <!-- <component v-for="i in components" v-bind:key="i" v-bind:is="components[i]"></component> -->
+        <!-- <component is="search-box"/> -->
+        <!-- <component is="columns"/> -->
+        <component v-for="i in componentCount" v-bind:key="i" :is="components[i-1]" />
+        <!-- <component :is="components[0]"></component> -->
+        <!-- <component :is="components[1]"></component> -->
     </div>
 </template>
 
 <script>
-import columns from './Columns';
+    import columns from './Columns'
+    import SearchBox from './SearchBox'
 
     export default {
-        props: {
-            pickingElement: Boolean
-        },
         mounted() {
-            console.log('Component mounted.')
+            console.log('Page component mounted.')
+        },
+        components: {
+            columns,
+            SearchBox 
         },
         data: function() {
             return {
-                components: ['columns']
-            }
+                components: ['columns', 'search-box']
+            };
+        },
+        props: {
+            componentCount: Number
         }
     }
 </script>

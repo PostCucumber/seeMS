@@ -22,6 +22,7 @@ window.Vue = require('vue');
 Vue.component('page-builder', require('./components/PageBuilder.vue').default);
 Vue.component('page', require('./components/Page.vue').default);
 Vue.component('columns', require('./components/Columns.vue').default);
+Vue.component('search-box', require('./components/SearchBox.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
