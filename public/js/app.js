@@ -1917,7 +1917,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['rowCount'],
+  props: ['rowCount', 'selectedBoxes'],
   data: function data() {
     return {
       highlighted: []
@@ -1931,7 +1931,6 @@ __webpack_require__.r(__webpack_exports__);
       console.log("––––––––––––––––––");
       console.log("Box " + $id);
       console.log("––––––––––––––––––");
-      console.log("Toggling selected on " + $id);
 
       if (this.boxIsHighlighted($id)) {
         document.getElementById($id).classList.remove("bg-gray-500");
@@ -1940,27 +1939,23 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         document.getElementById($id).classList.add("bg-gray-500");
         console.log("Applied background color");
-        this.highlighted.push($id);
-        console.log("Pushed " + $id + " to array");
+        this.$emit('addToList', $id);
       }
     },
     boxIsHighlighted: function boxIsHighlighted($id) {
-      for (var i = 0; i < this.highlighted.length; ++i) {
-        if ($id == this.highlighted[i]) {
+      for (var i = 0; i < this.selectedBoxes.length; ++i) {
+        if ($id == this.selectedBoxes[i]) {
           console.log("You clicked a highlighted box");
-          this.$emit('removeFromList', $id);
           return true;
         }
       }
 
-      this.$emit('addToList', $id);
       return false;
     },
     removeDeselectedElement: function removeDeselectedElement($id) {
-      for (var i = 0; i < this.highlighted.length; ++i) {
-        if ($id == this.highlighted[i]) {
-          console.log("Deleted " + this.highlighted[i]);
-          this.highlighted.splice(i, 1);
+      for (var i = 0; i < this.selectedBoxes.length; ++i) {
+        if ($id == this.selectedBoxes[i]) {
+          this.$emit('removeFromList', $id);
         }
       }
     }
@@ -19818,7 +19813,7 @@ var render = function() {
             }
           }
         },
-        [_vm._v("\n        " + _vm._s(_vm.highlighted) + "\n    ")]
+        [_vm._v("\n        " + _vm._s(_vm.selectedBoxes) + "\n    ")]
       )
     }),
     0
@@ -19889,7 +19884,10 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("grid", {
-        attrs: { "selected-boxes": [], "row-count": _vm.rowCount },
+        attrs: {
+          "selected-boxes": _vm.selectedBoxes,
+          "row-count": _vm.rowCount
+        },
         on: { addToList: _vm.addBox, removeFromList: _vm.removeBox }
       }),
       _vm._v(" "),
