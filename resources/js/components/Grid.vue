@@ -34,21 +34,16 @@
                     this.highlighted.push($id);
                     console.log("Pushed " + $id + " to array");
                 }
-                this.$emit('click', $id);
             },
-            // addBoxToList: function ($id) {
-            //     console.log($id);
-            //     this.highlighted.push($id);
-            //     console.log(this.highlighted);
-            //     this.$emit('click', $id);
-            // },
             boxIsHighlighted: function ($id) {
                 for(var i = 0; i < this.highlighted.length; ++i) {
                     if($id == this.highlighted[i]) {
-                        console.log("the box that was just clicked has already been highlighted")
+                        console.log("You clicked a highlighted box");
+                        this.$emit('removeFromList', $id);
                         return true;
                     }
                 }
+                this.$emit('addToList', $id);
                 return false;
             },
             removeDeselectedElement: function ($id) {

@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-wrap">
         <component v-for="(component, index) in chosenElements" v-bind:key="index" :is="chosenElements[index]" class="w-full" />
-        <grid v-bind:selected-boxes="[]" v-bind:row-count="rowCount" @click="updateSelectedBoxesList"></grid>
+        <grid v-bind:selected-boxes="[]" v-bind:row-count="rowCount" @addToList="addBox" @removeFromList="removeBox"></grid>
         <div class="w-full mx-auto pt-10">
             <h2 class="text-center">Add Row</h2>
             <button @click="++rowCount" class="flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg mx-auto">
@@ -70,8 +70,16 @@
             grid
         },
         methods: {
-            updateSelectedBoxesList: function (id) {
+            addBox: function (id) {
                 this.selectedBoxes.push(id);
+            },
+            removeBox: function (id) {
+                for(var i = 0; i < this.selectedBoxes.length; ++i) {
+                    if(id == this.selectedBoxes[i]) {
+                        console.log("Deleted " + this.selectedBoxes[i]);
+                        this.selectedBoxes.splice(i,1);
+                    }
+                }
             }
         },
         mounted() {

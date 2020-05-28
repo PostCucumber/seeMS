@@ -1942,23 +1942,17 @@ __webpack_require__.r(__webpack_exports__);
         this.highlighted.push($id);
         console.log("Pushed " + $id + " to array");
       }
-
-      this.$emit('click', $id);
     },
-    // addBoxToList: function ($id) {
-    //     console.log($id);
-    //     this.highlighted.push($id);
-    //     console.log(this.highlighted);
-    //     this.$emit('click', $id);
-    // },
     boxIsHighlighted: function boxIsHighlighted($id) {
       for (var i = 0; i < this.highlighted.length; ++i) {
         if ($id == this.highlighted[i]) {
-          console.log("the box that was just clicked has already been highlighted");
+          console.log("You clicked a highlighted box");
+          this.$emit('removeFromList', $id);
           return true;
         }
       }
 
+      this.$emit('addToList', $id);
       return false;
     },
     removeDeselectedElement: function removeDeselectedElement($id) {
@@ -2097,8 +2091,16 @@ __webpack_require__.r(__webpack_exports__);
     grid: _Grid__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
-    updateSelectedBoxesList: function updateSelectedBoxesList(id) {
+    addBox: function addBox(id) {
       this.selectedBoxes.push(id);
+    },
+    removeBox: function removeBox(id) {
+      for (var i = 0; i < this.selectedBoxes.length; ++i) {
+        if (id == this.selectedBoxes[i]) {
+          console.log("Deleted " + this.selectedBoxes[i]);
+          this.selectedBoxes.splice(i, 1);
+        }
+      }
     }
   },
   mounted: function mounted() {
@@ -19883,7 +19885,7 @@ var render = function() {
       _vm._v(" "),
       _c("grid", {
         attrs: { "selected-boxes": [], "row-count": _vm.rowCount },
-        on: { click: _vm.updateSelectedBoxesList }
+        on: { addToList: _vm.addBox, removeFromList: _vm.removeBox }
       }),
       _vm._v(" "),
       _c("div", { staticClass: "w-full mx-auto pt-10" }, [
