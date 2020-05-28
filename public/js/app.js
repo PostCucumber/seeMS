@@ -1915,27 +1915,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['selectedBoxes'],
+  props: ['rowCount'],
   data: function data() {
-    return {};
+    return {
+      highlighted: []
+    };
   },
   mounted: function mounted() {
     console.log('Grid component mounted.');
   },
-  components: {},
   methods: {
     toggleFocus: function toggleFocus($id) {
-      console.log("toggling focus");
-      document.getElementById($id).classList.add("bg-gray-500");
-    },
-    addBoxToList: function addBoxToList($id) {
-      console.log($id);
+      console.log("toggling focus on " + $id);
+
+      if (this.boxIsHighlighted($id)) {
+        document.getElementById($id).classList.remove("bg-gray-500");
+      } else {
+        document.getElementById($id).classList.add("bg-gray-500");
+      }
+
+      this.highlighted.push($id);
       this.$emit('click', $id);
+    },
+    // addBoxToList: function ($id) {
+    //     console.log($id);
+    //     this.highlighted.push($id);
+    //     console.log(this.highlighted);
+    //     this.$emit('click', $id);
+    // },
+    boxIsHighlighted: function boxIsHighlighted($id) {
+      console.log("Length of highlighted array: " + this.highlighted.length);
+
+      for (var i = 0; i < this.highlighted.length; i++) {
+        if ($id == this.highlighted[i]) {
+          console.log("the box that was just clicked has already been highlighted");
+          return true;
+        }
+      }
+
+      return false;
     }
-  },
-  computed: {}
+  }
 });
 
 /***/ }),
@@ -2033,6 +2054,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2046,7 +2073,8 @@ __webpack_require__.r(__webpack_exports__);
       pickingElement: false,
       chosenElements: [],
       selectedBoxes: [],
-      id: 0
+      id: 0,
+      rowCount: 0
     };
   },
   components: {
@@ -2056,7 +2084,7 @@ __webpack_require__.r(__webpack_exports__);
     grid: _Grid__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
-    eventHandler: function eventHandler(id) {
+    updateSelectedBoxesList: function updateSelectedBoxesList(id) {
       console.log("made it");
       this.selectedBoxes.push(id);
     }
@@ -19761,29 +19789,18 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "flex flex-wrap items-start w-full" },
-    _vm._l(120, function(box, index) {
-      return _c(
-        "button",
-        {
-          key: index,
-          staticClass:
-            "xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b hover:bg-gray-500 focus:bg-gray-500 focus:outline-none cursor-pointer",
-          attrs: { id: index },
-          on: {
-            click: function($event) {
-              _vm.toggleFocus(index)
-              _vm.addBoxToList(index)
-            }
+    _vm._l(_vm.rowCount * 12, function(box, index) {
+      return _c("button", {
+        key: index,
+        staticClass:
+          "xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b hover:bg-gray-500 focus:outline-none cursor-pointer",
+        attrs: { id: index },
+        on: {
+          click: function($event) {
+            return _vm.toggleFocus(index)
           }
-        },
-        [
-          _vm._v(
-            "\n            Selected Boxes: " +
-              _vm._s(_vm.selectedBoxes) +
-              "\n    "
-          )
-        ]
-      )
+        }
+      })
     }),
     0
   )
@@ -19853,9 +19870,27 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("grid", {
-        attrs: { "selected-boxes": [] },
-        on: { click: _vm.eventHandler }
+        attrs: { "selected-boxes": [], "row-count": _vm.rowCount },
+        on: { click: _vm.updateSelectedBoxesList }
       }),
+      _vm._v(" "),
+      _c("div", { staticClass: "w-full mx-auto pt-10" }, [
+        _c("h2", { staticClass: "text-center" }, [_vm._v("Add Row")]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg mx-auto",
+            on: {
+              click: function($event) {
+                ++_vm.rowCount
+              }
+            }
+          },
+          [_vm._v("\n            +\n        ")]
+        )
+      ]),
       _vm._v(" "),
       _vm.pickingElement
         ? _c(

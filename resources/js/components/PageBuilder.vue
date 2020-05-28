@@ -1,7 +1,13 @@
 <template>
     <div class="flex flex-wrap">
         <component v-for="(component, index) in chosenElements" v-bind:key="index" :is="chosenElements[index]" class="w-full" />
-        <grid v-bind:selected-boxes="[]" @click="eventHandler"></grid>
+        <grid v-bind:selected-boxes="[]" v-bind:row-count="rowCount" @click="updateSelectedBoxesList"></grid>
+        <div class="w-full mx-auto pt-10">
+            <h2 class="text-center">Add Row</h2>
+            <button @click="++rowCount" class="flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg mx-auto">
+                +
+            </button>           
+        </div>
         <!-- <div class="absolute w-full flex flex-wrap items-center h-screen text-center mx-auto"> -->
             <!-- <div class="w-full">
                 <h1 class="w-full">Click to add element</h1>
@@ -53,7 +59,8 @@
                 pickingElement: false,
                 chosenElements: [],
                 selectedBoxes: [],
-                id: 0
+                id: 0,
+                rowCount: 0
             }
         },
         components: {
@@ -63,7 +70,7 @@
             grid
         },
         methods: {
-            eventHandler: function (id) {
+            updateSelectedBoxesList: function (id) {
                 console.log("made it");
                 this.selectedBoxes.push(id);
             }

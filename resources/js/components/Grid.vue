@@ -1,37 +1,50 @@
 <template>
     <div class="flex flex-wrap items-start w-full">
-        <button @click="toggleFocus(index);addBoxToList(index);" v-for="(box, index) in 120" v-bind:key="index" :id="index" class="xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b hover:bg-gray-500 focus:bg-gray-500 focus:outline-none cursor-pointer">
-                Selected Boxes: {{ selectedBoxes }}
+        <button @click="toggleFocus(index)" v-for="(box, index) in rowCount*12" v-bind:key="index" :id="index" class="xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b hover:bg-gray-500 focus:outline-none cursor-pointer">
         </button>
     </div>
 </template>
 
 <script>
-
     export default {
         props: [
-            'selectedBoxes'
+            'rowCount'
         ],
         data: function() {
             return {
+                highlighted: []
             };
         },
         mounted() {
-            console.log('Grid component mounted.')
-        },
-        components: {
+            console.log('Grid component mounted.');
         },
         methods: {
             toggleFocus: function ($id) {
-                console.log("toggling focus");
-                document.getElementById($id).classList.add("bg-gray-500");
-            },
-            addBoxToList: function ($id) {
-                console.log($id);
+                console.log("toggling focus on " + $id);
+                if(this.boxIsHighlighted($id)) {
+                    document.getElementById($id).classList.remove("bg-gray-500");
+                } else {
+                    document.getElementById($id).classList.add("bg-gray-500");
+                }
+                this.highlighted.push($id);
                 this.$emit('click', $id);
+            },
+            // addBoxToList: function ($id) {
+            //     console.log($id);
+            //     this.highlighted.push($id);
+            //     console.log(this.highlighted);
+            //     this.$emit('click', $id);
+            // },
+            boxIsHighlighted: function ($id) {
+                console.log("Length of highlighted array: " + this.highlighted.length);
+                for(var i = 0; i < this.highlighted.length; i++) {
+                    if($id == this.highlighted[i]) {
+                        console.log("the box that was just clicked has already been highlighted")
+                        return true;
+                    }
+                }
+                return false;
             }
-        },
-        computed: {
         },
     }
 </script>
