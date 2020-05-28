@@ -48,12 +48,6 @@
         props: {
             elements: Array,
         },
-        components: {
-            columns,
-            SearchBox,
-            navigation,
-            grid
-        },
         data() {
             return {
                 pickingElement: false,
@@ -61,6 +55,12 @@
                 selectedBoxes: [],
                 id: 0
             }
+        },
+        components: {
+            columns,
+            SearchBox,
+            navigation,
+            grid
         },
         methods: {
             eventHandler: function (id) {

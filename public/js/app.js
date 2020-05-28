@@ -1917,13 +1917,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['selectedBoxes'],
+  data: function data() {
+    return {};
+  },
   mounted: function mounted() {
     console.log('Grid component mounted.');
   },
   components: {},
-  data: function data() {
-    return {};
-  },
   methods: {
     toggleFocus: function toggleFocus($id) {
       console.log("toggling focus");
@@ -1934,8 +1935,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$emit('click', $id);
     }
   },
-  computed: {},
-  props: ['selectedBoxes']
+  computed: {}
 });
 
 /***/ }),
@@ -2041,12 +2041,6 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     elements: Array
   },
-  components: {
-    columns: _elements_Columns__WEBPACK_IMPORTED_MODULE_1__["default"],
-    SearchBox: _elements_SearchBox__WEBPACK_IMPORTED_MODULE_2__["default"],
-    navigation: _elements_Navigation__WEBPACK_IMPORTED_MODULE_3__["default"],
-    grid: _Grid__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
   data: function data() {
     return {
       pickingElement: false,
@@ -2054,6 +2048,12 @@ __webpack_require__.r(__webpack_exports__);
       selectedBoxes: [],
       id: 0
     };
+  },
+  components: {
+    columns: _elements_Columns__WEBPACK_IMPORTED_MODULE_1__["default"],
+    SearchBox: _elements_SearchBox__WEBPACK_IMPORTED_MODULE_2__["default"],
+    navigation: _elements_Navigation__WEBPACK_IMPORTED_MODULE_3__["default"],
+    grid: _Grid__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
     eventHandler: function eventHandler(id) {

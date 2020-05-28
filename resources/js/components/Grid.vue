@@ -9,14 +9,17 @@
 <script>
 
     export default {
+        props: [
+            'selectedBoxes'
+        ],
+        data: function() {
+            return {
+            };
+        },
         mounted() {
             console.log('Grid component mounted.')
         },
         components: {
-        },
-        data: function() {
-            return {
-            };
         },
         methods: {
             toggleFocus: function ($id) {
@@ -30,8 +33,5 @@
         },
         computed: {
         },
-        props: [
-            'selectedBoxes'
-        ]
     }
 </script>
