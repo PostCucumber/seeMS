@@ -1915,6 +1915,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['rowCount'],
   data: function data() {
@@ -19804,17 +19805,21 @@ var render = function() {
     "div",
     { staticClass: "flex flex-wrap items-start w-full" },
     _vm._l(_vm.rowCount * 12, function(box, index) {
-      return _c("button", {
-        key: index,
-        staticClass:
-          "xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b hover:bg-gray-500 focus:outline-none cursor-pointer",
-        attrs: { id: index },
-        on: {
-          click: function($event) {
-            return _vm.toggleSelected(index)
+      return _c(
+        "button",
+        {
+          key: index,
+          staticClass:
+            "xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b hover:bg-gray-500 focus:outline-none cursor-pointer",
+          attrs: { id: index },
+          on: {
+            click: function($event) {
+              return _vm.toggleSelected(index)
+            }
           }
-        }
-      })
+        },
+        [_vm._v("\n        " + _vm._s(_vm.highlighted) + "\n    ")]
+      )
     }),
     0
   )
