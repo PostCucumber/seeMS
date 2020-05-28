@@ -1,7 +1,8 @@
 <template>
-    <div class="flex">
-        <component v-for="(component, index) in chosenElements" v-bind:key="index" :is="chosenElements[index]" />
-        <div class="w-full flex flex-wrap items-center h-screen text-center mx-auto">
+    <div class="flex flex-wrap">
+        <component v-for="(component, index) in chosenElements" v-bind:key="index" :is="chosenElements[index]" class="w-full" />
+        <grid></grid>
+        <div class="absolute w-full flex flex-wrap items-center h-screen text-center mx-auto">
             <div class="w-full">
                 <h1 class="w-full">Click to add element</h1>
                 <button @click="pickingElement = !pickingElement" class="flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg mx-auto">
@@ -37,6 +38,7 @@
 </template>
 
 <script>
+    import grid from './Grid'
     import columns from './elements/Columns'
     import SearchBox from './elements/SearchBox'
     import navigation from './elements/Navigation'
