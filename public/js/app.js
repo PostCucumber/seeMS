@@ -1914,13 +1914,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Grid component mounted.');
   },
   components: {},
   data: function data() {
-    return {};
+    return {
+      boxes: []
+    };
   },
   methods: {
     toggleFocus: function toggleFocus($id) {
@@ -1928,6 +1931,7 @@ __webpack_require__.r(__webpack_exports__);
       document.getElementById($id).classList.add("bg-gray-500");
     }
   },
+  computed: {},
   props: {}
 });
 
@@ -19753,7 +19757,8 @@ var render = function() {
         attrs: { id: index },
         on: {
           click: function($event) {
-            return _vm.toggleFocus(index)
+            _vm.toggleFocus(index)
+            _vm.boxes.push(index)
           }
         }
       })
