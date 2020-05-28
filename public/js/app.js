@@ -1928,6 +1928,10 @@ __webpack_require__.r(__webpack_exports__);
     toggleFocus: function toggleFocus($id) {
       console.log("toggling focus");
       document.getElementById($id).classList.add("bg-gray-500");
+    },
+    addBoxToList: function addBoxToList($id) {
+      console.log($id);
+      this.$emit('click', $id);
     }
   },
   computed: {},
@@ -2028,6 +2032,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2046,8 +2051,15 @@ __webpack_require__.r(__webpack_exports__);
     return {
       pickingElement: false,
       chosenElements: [],
-      selectedBoxes: []
+      selectedBoxes: [],
+      id: 0
     };
+  },
+  methods: {
+    eventHandler: function eventHandler(id) {
+      console.log("made it");
+      this.selectedBoxes.push(id);
+    }
   },
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -19760,7 +19772,7 @@ var render = function() {
           on: {
             click: function($event) {
               _vm.toggleFocus(index)
-              _vm.selectedBoxes.push(index)
+              _vm.addBoxToList(index)
             }
           }
         },
@@ -19840,7 +19852,10 @@ var render = function() {
         })
       }),
       _vm._v(" "),
-      _c("grid", { attrs: { "selected-boxes": ["1", "2", "3"] } }),
+      _c("grid", {
+        attrs: { "selected-boxes": [] },
+        on: { click: _vm.eventHandler }
+      }),
       _vm._v(" "),
       _vm.pickingElement
         ? _c(
@@ -19944,7 +19959,9 @@ var render = function() {
             })
           ],
           2
-        )
+        ),
+        _vm._v(" "),
+        _c("h2", [_vm._v("Selected boxes: " + _vm._s(_vm.selectedBoxes))])
       ])
     ],
     2
