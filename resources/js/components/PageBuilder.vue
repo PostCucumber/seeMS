@@ -72,14 +72,15 @@
         methods: {
             addBox: function (id) {
                 this.selectedBoxes.push(id);
+                console.log("Selected box " + id);
             },
             removeBox: function (id) {
                 for(var i = 0; i < this.selectedBoxes.length; ++i) {
                     if(id == this.selectedBoxes[i]) {
-                        console.log("Deleted " + this.selectedBoxes[i]);
                         this.selectedBoxes.splice(i,1);
                     }
                 }
+                console.log("Deselected box " + id);
             }
         },
         mounted() {

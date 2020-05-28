@@ -1928,24 +1928,17 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     toggleSelected: function toggleSelected($id) {
-      console.log("––––––––––––––––––");
-      console.log("Box " + $id);
-      console.log("––––––––––––––––––");
-
       if (this.boxIsHighlighted($id)) {
         document.getElementById($id).classList.remove("bg-gray-500");
         this.removeDeselectedElement($id);
-        console.log("Removed background color");
       } else {
         document.getElementById($id).classList.add("bg-gray-500");
-        console.log("Applied background color");
         this.$emit('addToList', $id);
       }
     },
     boxIsHighlighted: function boxIsHighlighted($id) {
       for (var i = 0; i < this.selectedBoxes.length; ++i) {
         if ($id == this.selectedBoxes[i]) {
-          console.log("You clicked a highlighted box");
           return true;
         }
       }
@@ -2089,14 +2082,16 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addBox: function addBox(id) {
       this.selectedBoxes.push(id);
+      console.log("Selected box " + id);
     },
     removeBox: function removeBox(id) {
       for (var i = 0; i < this.selectedBoxes.length; ++i) {
         if (id == this.selectedBoxes[i]) {
-          console.log("Deleted " + this.selectedBoxes[i]);
           this.selectedBoxes.splice(i, 1);
         }
       }
+
+      console.log("Deselected box " + id);
     }
   },
   mounted: function mounted() {
