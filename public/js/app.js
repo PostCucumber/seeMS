@@ -1926,16 +1926,23 @@ __webpack_require__.r(__webpack_exports__);
     console.log('Grid component mounted.');
   },
   methods: {
-    toggleFocus: function toggleFocus($id) {
-      console.log("toggling focus on " + $id);
+    toggleSelected: function toggleSelected($id) {
+      console.log("––––––––––––––––––");
+      console.log("Box " + $id);
+      console.log("––––––––––––––––––");
+      console.log("Toggling selected on " + $id);
 
       if (this.boxIsHighlighted($id)) {
         document.getElementById($id).classList.remove("bg-gray-500");
+        this.removeDeselectedElement($id);
+        console.log("Removed background color");
       } else {
         document.getElementById($id).classList.add("bg-gray-500");
+        console.log("Applied background color");
+        this.highlighted.push($id);
+        console.log("Pushed " + $id + " to array");
       }
 
-      this.highlighted.push($id);
       this.$emit('click', $id);
     },
     // addBoxToList: function ($id) {
@@ -1945,9 +1952,7 @@ __webpack_require__.r(__webpack_exports__);
     //     this.$emit('click', $id);
     // },
     boxIsHighlighted: function boxIsHighlighted($id) {
-      console.log("Length of highlighted array: " + this.highlighted.length);
-
-      for (var i = 0; i < this.highlighted.length; i++) {
+      for (var i = 0; i < this.highlighted.length; ++i) {
         if ($id == this.highlighted[i]) {
           console.log("the box that was just clicked has already been highlighted");
           return true;
@@ -1955,6 +1960,14 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return false;
+    },
+    removeDeselectedElement: function removeDeselectedElement($id) {
+      for (var i = 0; i < this.highlighted.length; ++i) {
+        if ($id == this.highlighted[i]) {
+          console.log("Deleted " + this.highlighted[i]);
+          this.highlighted.splice(i, 1);
+        }
+      }
     }
   }
 });
@@ -2085,7 +2098,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     updateSelectedBoxesList: function updateSelectedBoxesList(id) {
-      console.log("made it");
       this.selectedBoxes.push(id);
     }
   },
@@ -19797,7 +19809,7 @@ var render = function() {
         attrs: { id: index },
         on: {
           click: function($event) {
-            return _vm.toggleFocus(index)
+            return _vm.toggleSelected(index)
           }
         }
       })

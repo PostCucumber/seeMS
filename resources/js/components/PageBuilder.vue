@@ -71,7 +71,6 @@
         },
         methods: {
             updateSelectedBoxesList: function (id) {
-                console.log("made it");
                 this.selectedBoxes.push(id);
             }
         },
