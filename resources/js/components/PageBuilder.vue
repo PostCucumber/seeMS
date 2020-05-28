@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-wrap">
         <component v-for="(component, index) in chosenElements" v-bind:key="index" :is="chosenElements[index]" class="w-full" />
-        <grid></grid>
+        <grid v-bind:selected-boxes="['1','2','3']"></grid>
         <!-- <div class="absolute w-full flex flex-wrap items-center h-screen text-center mx-auto"> -->
             <!-- <div class="w-full">
                 <h1 class="w-full">Click to add element</h1>
@@ -56,7 +56,8 @@
         data() {
             return {
                 pickingElement: false,
-                chosenElements: []
+                chosenElements: [],
+                selectedBoxes: []
             }
         },
         mounted() {

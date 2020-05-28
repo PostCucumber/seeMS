@@ -1915,15 +1915,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Grid component mounted.');
   },
   components: {},
   data: function data() {
-    return {
-      boxes: []
-    };
+    return {};
   },
   methods: {
     toggleFocus: function toggleFocus($id) {
@@ -1932,7 +1931,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {},
-  props: {}
+  props: ['selectedBoxes']
 });
 
 /***/ }),
@@ -2046,7 +2045,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       pickingElement: false,
-      chosenElements: []
+      chosenElements: [],
+      selectedBoxes: []
     };
   },
   mounted: function mounted() {
@@ -19750,18 +19750,28 @@ var render = function() {
     "div",
     { staticClass: "flex flex-wrap items-start w-full" },
     _vm._l(120, function(box, index) {
-      return _c("button", {
-        key: index,
-        staticClass:
-          "xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b hover:bg-gray-500 focus:bg-gray-500 focus:outline-none cursor-pointer",
-        attrs: { id: index },
-        on: {
-          click: function($event) {
-            _vm.toggleFocus(index)
-            _vm.boxes.push(index)
+      return _c(
+        "button",
+        {
+          key: index,
+          staticClass:
+            "xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b hover:bg-gray-500 focus:bg-gray-500 focus:outline-none cursor-pointer",
+          attrs: { id: index },
+          on: {
+            click: function($event) {
+              _vm.toggleFocus(index)
+              _vm.selectedBoxes.push(index)
+            }
           }
-        }
-      })
+        },
+        [
+          _vm._v(
+            "\n            Selected Boxes: " +
+              _vm._s(_vm.selectedBoxes) +
+              "\n    "
+          )
+        ]
+      )
     }),
     0
   )
@@ -19830,7 +19840,7 @@ var render = function() {
         })
       }),
       _vm._v(" "),
-      _c("grid"),
+      _c("grid", { attrs: { "selected-boxes": ["1", "2", "3"] } }),
       _vm._v(" "),
       _vm.pickingElement
         ? _c(

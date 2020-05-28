@@ -1,6 +1,7 @@
 <template>
     <div class="flex flex-wrap items-start w-full">
-        <button @click="toggleFocus(index);boxes.push(index);" v-for="(box, index) in 120" v-bind:key="index" :id="index" class="xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b hover:bg-gray-500 focus:bg-gray-500 focus:outline-none cursor-pointer">
+        <button @click="toggleFocus(index);selectedBoxes.push(index);" v-for="(box, index) in 120" v-bind:key="index" :id="index" class="xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b hover:bg-gray-500 focus:bg-gray-500 focus:outline-none cursor-pointer">
+                Selected Boxes: {{ selectedBoxes }}
         </button>
     </div>
 </template>
@@ -15,7 +16,6 @@
         },
         data: function() {
             return {
-                boxes: []
             };
         },
         methods: {
@@ -26,7 +26,8 @@
         },
         computed: {
         },
-        props: {
-        }
+        props: [
+            'selectedBoxes'
+        ]
     }
 </script>
