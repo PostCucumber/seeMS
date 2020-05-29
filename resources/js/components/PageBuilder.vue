@@ -91,7 +91,7 @@
             }
         },
         mounted() {
-            console.log('Component mounted.')
+            console.log('Page Builder component mounted.')
         },
     }
 </script>

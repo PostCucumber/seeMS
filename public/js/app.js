@@ -2184,7 +2184,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    console.log('Page Builder component mounted.');
   }
 });
 
