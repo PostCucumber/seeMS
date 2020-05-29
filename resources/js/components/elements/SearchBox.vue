@@ -8,8 +8,6 @@
 
 <script>
     export default {
-        props: {
-        },
         mounted() {
             console.log('Search Box component mounted.')
         },

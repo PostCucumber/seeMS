@@ -18,10 +18,6 @@
             SearchBox,
             navigation 
         },
-        data: function() {
-            return {
-            };
-        },
         props: {
             components: Array
         }

@@ -25,8 +25,6 @@
 
 <script>
     export default {
-        props: {
-        },
         mounted() {
             console.log('Columns component mounted.')
         },

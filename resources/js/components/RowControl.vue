@@ -15,12 +15,6 @@
         props: [  
             'rowCount'
         ],
-        data() {
-            return {
-            }
-        },
-        components: {
-        },
         methods: {
             addRow: function () {
                 this.$emit('addRow');

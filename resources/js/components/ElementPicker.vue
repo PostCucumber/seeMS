@@ -28,12 +28,6 @@
             'pickingElement',
             'elements',
         ],
-        data() {
-            return {
-            }
-        },
-        components: {
-        },
         methods: {
             togglePicker: function () {
                 this.$emit('togglePicker');

@@ -1934,10 +1934,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['pickingElement', 'elements'],
-  data: function data() {
-    return {};
-  },
-  components: {},
   methods: {
     togglePicker: function togglePicker() {
       this.$emit('togglePicker');
@@ -1981,7 +1977,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     console.log('Grid component mounted.');
-    console.log(window.innerWidth);
   },
   methods: {
     toggleSelected: function toggleSelected($id) {
@@ -2037,11 +2032,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['chosenElements', 'index', 'selectedBoxes'],
-  data: function data() {
-    return {};
-  },
-  components: {},
-  methods: {},
   mounted: function mounted() {
     console.log('Info Bar component mounted.');
   }
@@ -2079,9 +2069,6 @@ __webpack_require__.r(__webpack_exports__);
     SearchBox: _elements_SearchBox__WEBPACK_IMPORTED_MODULE_1__["default"],
     navigation: _elements_Navigation__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
-  data: function data() {
-    return {};
-  },
   props: {
     components: Array
   }
@@ -2105,6 +2092,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elements_Columns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./elements/Columns */ "./resources/js/components/elements/Columns.vue");
 /* harmony import */ var _elements_SearchBox__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./elements/SearchBox */ "./resources/js/components/elements/SearchBox.vue");
 /* harmony import */ var _elements_Navigation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./elements/Navigation */ "./resources/js/components/elements/Navigation.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -2222,10 +2213,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['rowCount'],
-  data: function data() {
-    return {};
-  },
-  components: {},
   methods: {
     addRow: function addRow() {
       this.$emit('addRow');
@@ -2276,7 +2263,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {},
   mounted: function mounted() {
     console.log('Columns component mounted.');
   }
@@ -2298,7 +2284,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {},
   mounted: function mounted() {
     console.log('Navigation component mounted.');
   }
@@ -2324,7 +2309,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {},
   mounted: function mounted() {
     console.log('Search Box component mounted.');
   }

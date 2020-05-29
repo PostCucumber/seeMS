@@ -19,7 +19,6 @@
         },
         mounted() {
             console.log('Grid component mounted.');
-            console.log(window.innerWidth);
         },
         methods: {
             toggleSelected: function ($id) {

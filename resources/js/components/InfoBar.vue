@@ -17,14 +17,6 @@
             'index',
             'selectedBoxes'
         ],
-        data() {
-            return {
-            }
-        },
-        components: {
-        },
-        methods: {
-        },
         mounted() {
             console.log('Info Bar component mounted.')
         },

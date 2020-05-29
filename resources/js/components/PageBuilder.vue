@@ -25,7 +25,11 @@
             @addElement="addElement"
         >
         </element-picker>
-        <info-bar v-bind:chosen-elements="chosenElements" v-bind:selected-boxes="selectedBoxes"></info-bar>
+        <info-bar
+            v-bind:chosen-elements="chosenElements"
+            v-bind:selected-boxes="selectedBoxes"
+        >
+        </info-bar>
     </div>
 </template>
 
