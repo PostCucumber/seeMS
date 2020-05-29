@@ -1915,7 +1915,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['rowCount', 'selectedBoxes'],
   data: function data() {
@@ -2010,6 +2009,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elements_Columns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./elements/Columns */ "./resources/js/components/elements/Columns.vue");
 /* harmony import */ var _elements_SearchBox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./elements/SearchBox */ "./resources/js/components/elements/SearchBox.vue");
 /* harmony import */ var _elements_Navigation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./elements/Navigation */ "./resources/js/components/elements/Navigation.vue");
+//
+//
+//
 //
 //
 //
@@ -19795,21 +19797,17 @@ var render = function() {
     "div",
     { staticClass: "flex flex-wrap items-start w-full" },
     _vm._l(_vm.rowCount * 12, function(box, index) {
-      return _c(
-        "button",
-        {
-          key: index,
-          staticClass:
-            "xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b hover:bg-gray-500 focus:outline-none cursor-pointer",
-          attrs: { id: index },
-          on: {
-            click: function($event) {
-              return _vm.toggleSelected(index)
-            }
+      return _c("button", {
+        key: index,
+        staticClass:
+          "xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b hover:bg-gray-500 focus:outline-none cursor-pointer",
+        attrs: { id: index },
+        on: {
+          click: function($event) {
+            return _vm.toggleSelected(index)
           }
-        },
-        [_vm._v("\n        " + _vm._s(_vm.selectedBoxes) + "\n    ")]
-      )
+        }
+      })
     }),
     0
   )
@@ -19886,23 +19884,42 @@ var render = function() {
         on: { addToList: _vm.addBox, removeFromList: _vm.removeBox }
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "w-full mx-auto pt-10" }, [
-        _c("h2", { staticClass: "text-center" }, [_vm._v("Add Row")]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass:
-              "flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg mx-auto",
-            on: {
-              click: function($event) {
-                ++_vm.rowCount
+      _c(
+        "div",
+        { staticClass: "w-full flex flex-wrap justify-center mx-auto pt-10" },
+        [
+          _c("h2", { staticClass: "text-center w-full" }, [_vm._v("Rows")]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "w-20 mr-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg",
+              on: {
+                click: function($event) {
+                  ++_vm.rowCount
+                }
               }
-            }
-          },
-          [_vm._v("\n            +\n        ")]
-        )
-      ]),
+            },
+            [_vm._v("\n            +\n        ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "w-20 ml-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg",
+              attrs: { disabled: _vm.rowCount < 1 },
+              on: {
+                click: function($event) {
+                  --_vm.rowCount
+                }
+              }
+            },
+            [_vm._v("\n            –\n        ")]
+          )
+        ]
+      ),
       _vm._v(" "),
       _vm.pickingElement
         ? _c(
