@@ -20233,7 +20233,7 @@ var render = function() {
         "button",
         {
           staticClass:
-            "w-20 mr-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg",
+            "w-16 h-16 mr-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg",
           on: {
             click: function($event) {
               return _vm.addRow()
@@ -20247,7 +20247,7 @@ var render = function() {
         "button",
         {
           staticClass:
-            "w-20 ml-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg",
+            "w-16 h-16 ml-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg",
           attrs: { disabled: _vm.rowCount < 1 },
           on: {
             click: function($event) {
