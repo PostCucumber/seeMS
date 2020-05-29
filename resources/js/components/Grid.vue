@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-wrap items-start w-full">
-        <button @click="toggleSelected(index)" v-for="(box, index) in rowCount*12" v-bind:key="index" :id="index" class="xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b hover:bg-gray-500 focus:outline-none cursor-pointer">
+        <button @click="toggleSelected(index)" v-for="(box, index) in rowCount*BOXES_PER_ROW" v-bind:key="index" :id="index" class="xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b hover:bg-gray-500 focus:outline-none cursor-pointer">
         </button>
     </div>
 </template>
@@ -13,11 +13,13 @@
         ],
         data: function() {
             return {
-                highlighted: []
+                highlighted: [],
+                BOXES_PER_ROW: 12
             };
         },
         mounted() {
             console.log('Grid component mounted.');
+            console.log(window.innerWidth);
         },
         methods: {
             toggleSelected: function ($id) {
@@ -43,7 +45,7 @@
                         this.$emit('removeFromList', $id);
                     }
                 }
-            }
+            },
         },
     }
 </script>
