@@ -19,6 +19,7 @@
         >
         </row-control>
         <element-picker
+            v-if="false"
             v-bind:picking-element="pickingElement"
             v-bind:elements="elements"
             @togglePicker="togglePicker"

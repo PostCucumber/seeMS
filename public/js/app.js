@@ -2127,6 +2127,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -20183,13 +20184,9 @@ var render = function() {
         on: { addRow: _vm.addRow, removeRow: _vm.removeRow }
       }),
       _vm._v(" "),
-      _c("element-picker", {
-        attrs: {
-          "picking-element": _vm.pickingElement,
-          elements: _vm.elements
-        },
-        on: { togglePicker: _vm.togglePicker, addElement: _vm.addElement }
-      }),
+      false
+        ? undefined
+        : _vm._e(),
       _vm._v(" "),
       _c("info-bar", {
         attrs: {
@@ -20233,7 +20230,7 @@ var render = function() {
         "button",
         {
           staticClass:
-            "w-16 h-16 mr-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg",
+            "w-20 mr-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg",
           on: {
             click: function($event) {
               return _vm.addRow()
@@ -20247,7 +20244,7 @@ var render = function() {
         "button",
         {
           staticClass:
-            "w-16 h-16 ml-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg",
+            "w-20 ml-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg",
           attrs: { disabled: _vm.rowCount < 1 },
           on: {
             click: function($event) {
