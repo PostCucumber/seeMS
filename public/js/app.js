@@ -1954,8 +1954,8 @@ __webpack_require__.r(__webpack_exports__);
         this.$emit('changeWidth', $size = "SM");
       }
     },
-    toggleSelected: function toggleSelected() {
-      this.$emit('clearBoxes');
+    clearGrid: function clearGrid() {
+      this.$emit('clearGrid');
     }
   }
 });
@@ -2032,7 +2032,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['rowCount', 'selectedBoxes'],
   data: function data() {
@@ -2075,7 +2074,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
     },
-    clear: function clear() {
+    clearGrid: function clearGrid() {
       var _this = this;
 
       this.selectedBoxes.forEach(function (id) {
@@ -2280,8 +2279,8 @@ __webpack_require__.r(__webpack_exports__);
     updateWidth: function updateWidth(size) {
       this.deviceSize = size;
     },
-    clearBoxes: function clearBoxes() {
-      this.$refs.grid.clear();
+    clearGrid: function clearGrid() {
+      this.$refs.grid.clearGrid();
     }
   },
   mounted: function mounted() {
@@ -20673,7 +20672,7 @@ var render = function() {
               "div",
               {
                 staticClass: "absolute top-0 right-0 p-4",
-                on: { click: this.toggleSelected }
+                on: { click: this.clearGrid }
               },
               [_vm._v("Clear All")]
             )
@@ -20864,11 +20863,7 @@ var render = function() {
           _vm._v(" "),
           _vm.boxIsHighlighted(index)
             ? _c("p", { staticClass: "text-white" }, [_vm._v("–")])
-            : _vm._e(),
-          _vm._v(" "),
-          _c("span", { staticClass: "text-red-300" }, [
-            _vm._v(_vm._s(_vm.selectedBoxes))
-          ])
+            : _vm._e()
         ]
       )
     }),
@@ -21024,7 +21019,7 @@ var render = function() {
       _vm._v(" "),
       _c("element-helper", {
         attrs: { "selected-boxes": _vm.selectedBoxes },
-        on: { changeWidth: _vm.updateWidth, clearBoxes: _vm.clearBoxes }
+        on: { changeWidth: _vm.updateWidth, clearGrid: _vm.clearGrid }
       }),
       _vm._v(" "),
       _c("info-bar", {

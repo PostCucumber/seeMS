@@ -1,7 +1,7 @@
 <template>
     <div class="absolute w-full flex flex-wrap bottom-0 left-0 mb-20 ml-4">
         <button class="relative h-64 w-1/2 rounded-lg shadow">
-            <div v-if="this.selectedBoxes.length != 0" @click="this.toggleSelected" class="absolute top-0 right-0 p-4">Clear All</div>
+            <div v-if="this.selectedBoxes.length != 0" @click="this.clearGrid" class="absolute top-0 right-0 p-4">Clear All</div>
         </button>
         <div class="absolute flex items-center justify-center h-32 w-32 mr-8 bottom-0 right-0 text-white uppercase rounded-lg text-5xl round shadow bg-purple-800">
             {{ deviceSize }}
@@ -46,8 +46,8 @@
                     this.$emit('changeWidth', $size = "SM");
                 }  
             },
-            toggleSelected: function () {
-                this.$emit('clearBoxes');
+            clearGrid: function () {
+                this.$emit('clearGrid');
             }
         }
         

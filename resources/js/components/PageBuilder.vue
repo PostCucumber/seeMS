@@ -29,7 +29,7 @@
         </element-picker>
         <element-helper
             @changeWidth="updateWidth"
-            @clearBoxes="clearBoxes"
+            @clearGrid="clearGrid"
             v-bind:selected-boxes="selectedBoxes"
         >
         </element-helper>
@@ -103,8 +103,8 @@
             updateWidth: function (size) {
                 this.deviceSize = size;
             },
-            clearBoxes: function () {
-                this.$refs.grid.clear();
+            clearGrid: function () {
+                this.$refs.grid.clearGrid();
             }
         },
         mounted() {
