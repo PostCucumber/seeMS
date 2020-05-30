@@ -55,7 +55,7 @@
             },
             clear: function () {
                 this.selectedBoxes.forEach(id => {
-                    document.getElementById(id).classList.remove("bg-purple-800");
+                    this.removeHighlight(id);
                 });
                 this.selectedBoxes.splice(0, this.selectedBoxes.length);
             }

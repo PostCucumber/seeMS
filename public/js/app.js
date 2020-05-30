@@ -2076,8 +2076,10 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     clear: function clear() {
+      var _this = this;
+
       this.selectedBoxes.forEach(function (id) {
-        document.getElementById(id).classList.remove("bg-purple-800");
+        _this.removeHighlight(id);
       });
       this.selectedBoxes.splice(0, this.selectedBoxes.length);
     }
