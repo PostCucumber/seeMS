@@ -2272,11 +2272,6 @@ __webpack_require__.r(__webpack_exports__);
     updateWidth: function updateWidth(size) {
       this.deviceSize = size;
     },
-    sleep: function sleep(ms) {
-      return new Promise(function (resolve) {
-        return setTimeout(resolve, ms);
-      });
-    },
     clearBoxes: function clearBoxes() {
       this.$refs.grid.clear();
     }

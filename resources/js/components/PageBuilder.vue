@@ -103,9 +103,6 @@
             updateWidth: function (size) {
                 this.deviceSize = size;
             },
-            sleep: function (ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-            },
             clearBoxes: function () {
                 this.$refs.grid.clear();
             }
