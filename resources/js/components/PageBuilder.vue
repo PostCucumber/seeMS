@@ -98,7 +98,6 @@
                 this.chosenElements.push(elements[index])
             },
             updateWidth: function (size) {
-                console.log(size);
                 this.deviceSize = size;
             }
         },

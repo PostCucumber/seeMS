@@ -2257,7 +2257,6 @@ __webpack_require__.r(__webpack_exports__);
       this.chosenElements.push(elements[index]);
     },
     updateWidth: function updateWidth(size) {
-      console.log(size);
       this.deviceSize = size;
     }
   },
