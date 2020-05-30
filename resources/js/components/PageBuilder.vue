@@ -6,6 +6,7 @@
             class="w-full"
         />
         <grid
+            ref="grid"
             v-bind:selected-boxes="selectedBoxes"
             v-bind:row-count="rowCount"
             @addToList="addBox"
@@ -28,7 +29,7 @@
         </element-picker>
         <element-helper
             @changeWidth="updateWidth"
-            @toggleSelected="toggleSelected"
+            @clearBoxes="clearBoxes"
             v-bind:selected-boxes="selectedBoxes"
         >
         </element-helper>
@@ -101,6 +102,12 @@
             },
             updateWidth: function (size) {
                 this.deviceSize = size;
+            },
+            clearBoxes: function () {
+                console.log("made it to parent");
+                this.selectedBoxes.forEach(box => {
+                    this.$refs.grid.toggleSelected(box);
+                });
             }
         },
         mounted() {

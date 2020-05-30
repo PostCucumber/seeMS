@@ -1955,8 +1955,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     toggleSelected: function toggleSelected() {
-      console.log("made it");
-      this.$emit('toggleSelected');
+      this.$emit('clearBoxes');
     }
   }
 });
@@ -2205,6 +2204,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2265,6 +2265,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     updateWidth: function updateWidth(size) {
       this.deviceSize = size;
+    },
+    clearBoxes: function clearBoxes() {
+      var _this = this;
+
+      console.log("made it to parent");
+      this.selectedBoxes.forEach(function (box) {
+        _this.$refs.grid.toggleSelected(box);
+      });
     }
   },
   mounted: function mounted() {
@@ -20656,7 +20664,7 @@ var render = function() {
               "div",
               {
                 staticClass: "absolute top-0 right-0 p-4",
-                on: { click: _vm.toggleSelected }
+                on: { click: this.toggleSelected }
               },
               [_vm._v("Clear All")]
             )
@@ -20984,6 +20992,7 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("grid", {
+        ref: "grid",
         attrs: {
           "selected-boxes": _vm.selectedBoxes,
           "row-count": _vm.rowCount
@@ -21002,7 +21011,7 @@ var render = function() {
       _vm._v(" "),
       _c("element-helper", {
         attrs: { "selected-boxes": _vm.selectedBoxes },
-        on: { changeWidth: _vm.updateWidth, toggleSelected: _vm.toggleSelected }
+        on: { changeWidth: _vm.updateWidth, clearBoxes: _vm.clearBoxes }
       }),
       _vm._v(" "),
       _c("info-bar", {
