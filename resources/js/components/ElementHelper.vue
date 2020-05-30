@@ -1,7 +1,13 @@
 <template>
-    <div class="absolute w-full flex flex-wrap bottom-0 left-0 mb-20">
+    <div v-if="this.selectedBoxes.length != 0" class="absolute w-full flex flex-wrap bottom-0 left-0 mb-20">
         <div class="relative h-64 w-1/2 rounded-lg shadow border-r border-b border-gray-200">
             <div v-if="this.selectedBoxes.length != 0" @click="this.clearGrid" class="absolute top-0 right-0 p-4 text-red-700 font-bold">Clear All</div>
+            <div>
+                <ElementPicker
+                    v-bind:elements="elements"
+                >
+                </ElementPicker>
+            </div>
         </div>
         <div class="absolute flex flex-wrap items-center justify-center h-32 w-32 mr-8 bottom-0 right-0 leading-none text-white text-center rounded-lg shadow bg-purple-800">
             <span class="uppercase text-5xl w-full -mb-12">{{ deviceSize }}</span>
@@ -11,9 +17,12 @@
 </template>
 
 <script>
+    import ElementPicker from './ElementPicker'
+
     export default {
         props: [  
-            'selectedBoxes'
+            'selectedBoxes',
+            'elements'
         ],
         created() {
             window.addEventListener("resize", this.getWindowWidth);
@@ -30,6 +39,9 @@
                 deviceSize: null,
                 sizeDescription: null
             };
+        },
+        components : {
+            ElementPicker
         },
         methods: {
             getWindowWidth: function () {

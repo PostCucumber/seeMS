@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap mx-auto">
         <component
             v-for="(component, index) in chosenElements"
             v-bind:key="index" :is="chosenElements[index]"
@@ -31,6 +31,7 @@
             @changeWidth="updateWidth"
             @clearGrid="clearGrid"
             v-bind:selected-boxes="selectedBoxes"
+            v-bind:elements="elements"
         >
         </element-helper>
         <info-bar

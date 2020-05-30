@@ -1908,6 +1908,7 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ElementPicker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ElementPicker */ "./resources/js/components/ElementPicker.vue");
 //
 //
 //
@@ -1920,8 +1921,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['selectedBoxes'],
+  props: ['selectedBoxes', 'elements'],
   created: function created() {
     window.addEventListener("resize", this.getWindowWidth);
   },
@@ -1937,6 +1945,9 @@ __webpack_require__.r(__webpack_exports__);
       deviceSize: null,
       sizeDescription: null
     };
+  },
+  components: {
+    ElementPicker: _ElementPicker__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
     getWindowWidth: function getWindowWidth() {
@@ -1996,21 +2007,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['pickingElement', 'elements'],
+  props: ['elements'],
   methods: {
     togglePicker: function togglePicker() {
       this.$emit('togglePicker');
@@ -2189,6 +2187,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elements_Columns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./elements/Columns */ "./resources/js/components/elements/Columns.vue");
 /* harmony import */ var _elements_SearchBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./elements/SearchBox */ "./resources/js/components/elements/SearchBox.vue");
 /* harmony import */ var _elements_Navigation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./elements/Navigation */ "./resources/js/components/elements/Navigation.vue");
+//
 //
 //
 //
@@ -20674,49 +20673,57 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "absolute w-full flex flex-wrap bottom-0 left-0 mb-20" },
-    [
-      _c(
+  return this.selectedBoxes.length != 0
+    ? _c(
         "div",
-        {
-          staticClass:
-            "relative h-64 w-1/2 rounded-lg shadow border-r border-b border-gray-200"
-        },
+        { staticClass: "absolute w-full flex flex-wrap bottom-0 left-0 mb-20" },
         [
-          this.selectedBoxes.length != 0
-            ? _c(
+          _c(
+            "div",
+            {
+              staticClass:
+                "relative h-64 w-1/2 rounded-lg shadow border-r border-b border-gray-200"
+            },
+            [
+              this.selectedBoxes.length != 0
+                ? _c(
+                    "div",
+                    {
+                      staticClass:
+                        "absolute top-0 right-0 p-4 text-red-700 font-bold",
+                      on: { click: this.clearGrid }
+                    },
+                    [_vm._v("Clear All")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c(
                 "div",
-                {
-                  staticClass:
-                    "absolute top-0 right-0 p-4 text-red-700 font-bold",
-                  on: { click: this.clearGrid }
-                },
-                [_vm._v("Clear All")]
+                [_c("ElementPicker", { attrs: { elements: _vm.elements } })],
+                1
               )
-            : _vm._e()
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "absolute flex flex-wrap items-center justify-center h-32 w-32 mr-8 bottom-0 right-0 leading-none text-white text-center rounded-lg shadow bg-purple-800"
-        },
-        [
-          _c("span", { staticClass: "uppercase text-5xl w-full -mb-12" }, [
-            _vm._v(_vm._s(_vm.deviceSize))
-          ]),
+            ]
+          ),
           _vm._v(" "),
-          _c("span", { staticClass: "text-sm w-full" }, [
-            _vm._v(_vm._s(_vm.sizeDescription))
-          ])
+          _c(
+            "div",
+            {
+              staticClass:
+                "absolute flex flex-wrap items-center justify-center h-32 w-32 mr-8 bottom-0 right-0 leading-none text-white text-center rounded-lg shadow bg-purple-800"
+            },
+            [
+              _c("span", { staticClass: "uppercase text-5xl w-full -mb-12" }, [
+                _vm._v(_vm._s(_vm.deviceSize))
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "text-sm w-full" }, [
+                _vm._v(_vm._s(_vm.sizeDescription))
+              ])
+            ]
+          )
         ]
       )
-    ]
-  )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -20740,103 +20747,40 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass:
-        "absolute w-full flex flex-wrap items-center h-screen text-center mx-auto"
-    },
-    [
-      _c("div", { staticClass: "w-full" }, [
-        _c("h1", { staticClass: "w-full" }, [_vm._v("Click to add element")]),
-        _vm._v(" "),
-        _c(
-          "button",
+  return _c("div", { staticClass: "w-full mx-auto h-auto p-4" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "flex flex-wrap mx-auto py-8" },
+      _vm._l(_vm.elements, function(element, index) {
+        return _c(
+          "div",
           {
-            staticClass:
-              "flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg mx-auto",
+            key: index,
+            staticClass: "w-1/4",
             on: {
               click: function($event) {
-                return _vm.togglePicker()
+                _vm.togglePicker()
+                _vm.addElement(_vm.elements, index)
               }
             }
           },
-          [_vm._v("\n            +\n        ")]
+          [
+            _c(
+              "div",
+              {
+                staticClass: "bg-gray-200 m-4 p-4 rounded cursor-pointer",
+                attrs: { id: element }
+              },
+              [_vm._v(_vm._s(_vm.elements[index]))]
+            )
+          ]
         )
-      ]),
-      _vm._v(" "),
-      _vm.pickingElement
-        ? _c(
-            "div",
-            {
-              staticClass:
-                "absolute top-0 right-0 bottom-0 left-0 z-40 flex items-center w-full h-screen",
-              staticStyle: { "background-color": "rgba(0,0,0,0.25)" }
-            },
-            [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "relative flex mx-auto w-2/3 items-center justify-center bg-gray-100 rounded shadow-lg"
-                },
-                [
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "absolute top-0 right-0 py-4 px-5 font-bold focus:outline-none",
-                      on: {
-                        click: function($event) {
-                          return _vm.togglePicker()
-                        }
-                      }
-                    },
-                    [_vm._v("X")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "w-full mx-auto h-auto p-10" }, [
-                    _vm._m(0),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "flex flex-wrap mx-auto py-8" },
-                      _vm._l(_vm.elements, function(element, index) {
-                        return _c(
-                          "div",
-                          {
-                            key: index,
-                            staticClass: "w-1/2",
-                            on: {
-                              click: function($event) {
-                                _vm.togglePicker()
-                                _vm.addElement(_vm.elements, index)
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "bg-gray-200 m-4 p-4 rounded cursor-pointer",
-                                attrs: { id: element }
-                              },
-                              [_vm._v(_vm._s(_vm.elements[index]))]
-                            )
-                          ]
-                        )
-                      }),
-                      0
-                    )
-                  ])
-                ]
-              )
-            ]
-          )
-        : _vm._e()
-    ]
-  )
+      }),
+      0
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -21017,7 +20961,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex flex-wrap" },
+    { staticClass: "flex flex-wrap mx-auto" },
     [
       _vm._l(_vm.chosenElements, function(component, index) {
         return _c(_vm.chosenElements[index], {
@@ -21046,7 +20990,7 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _c("element-helper", {
-        attrs: { "selected-boxes": _vm.selectedBoxes },
+        attrs: { "selected-boxes": _vm.selectedBoxes, elements: _vm.elements },
         on: { changeWidth: _vm.updateWidth, clearGrid: _vm.clearGrid }
       }),
       _vm._v(" "),
