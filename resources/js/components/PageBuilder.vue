@@ -26,6 +26,7 @@
             @addElement="addElement"
         >
         </element-picker>
+        <element-helper></element-helper>
         <info-bar
             v-bind:chosen-elements="chosenElements"
             v-bind:selected-boxes="selectedBoxes"
@@ -38,6 +39,7 @@
     import grid from './Grid'
     import RowControl from './RowControl'
     import ElementPicker from './ElementPicker'
+    import ElementHelper from './ElementHelper'
     import InfoBar from './InfoBar'
     import columns from './elements/Columns'
     import SearchBox from './elements/SearchBox'
@@ -63,6 +65,7 @@
             grid,
             RowControl,
             ElementPicker,
+            ElementHelper,
             InfoBar
         },
         methods: {
