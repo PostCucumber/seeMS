@@ -32,14 +32,19 @@
         },
         methods: {
             getWindowWidth: function () {
+                var $size = null;
                 if(window.innerWidth >= 1280) {
-                    this.deviceSize = "xl";
+                    this.deviceSize = "XL";
+                    this.$emit('changeWidth', $size = "XL");
                 } else if (window.innerWidth >= 1024) {
-                    this.deviceSize = "lg";
+                    this.deviceSize = "LG";
+                    this.$emit('changeWidth', $size = "LG");
                 } else if (window.innerWidth >= 768) {
-                    this.deviceSize = "md";
+                    this.deviceSize = "MD";
+                    this.$emit('changeWidth', $size = "MD");
                 } else {
-                    this.deviceSize = "sm";
+                    this.deviceSize = "SM";
+                    this.$emit('changeWidth', $size = "SM");
                 }  
             }
         }

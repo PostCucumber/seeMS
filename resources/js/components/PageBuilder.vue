@@ -26,7 +26,10 @@
             @addElement="addElement"
         >
         </element-picker>
-        <element-helper></element-helper>
+        <element-helper
+            @changeWidth="updateWidth"
+        >
+        </element-helper>
         <info-bar
             v-bind:chosen-elements="chosenElements"
             v-bind:selected-boxes="selectedBoxes"
@@ -55,7 +58,8 @@
                 chosenElements: [],
                 selectedBoxes: [],
                 id: 0,
-                rowCount: 0
+                rowCount: 0,
+                deviceSize: null
             }
         },
         components: {
@@ -92,6 +96,10 @@
             },
             addElement: function (elements, index) {
                 this.chosenElements.push(elements[index])
+            },
+            updateWidth: function (size) {
+                console.log(size);
+                this.deviceSize = size;
             }
         },
         mounted() {

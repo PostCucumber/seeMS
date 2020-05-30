@@ -1937,14 +1937,20 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getWindowWidth: function getWindowWidth() {
+      var $size = null;
+
       if (window.innerWidth >= 1280) {
-        this.deviceSize = "xl";
+        this.deviceSize = "XL";
+        this.$emit('changeWidth', $size = "XL");
       } else if (window.innerWidth >= 1024) {
-        this.deviceSize = "lg";
+        this.deviceSize = "LG";
+        this.$emit('changeWidth', $size = "LG");
       } else if (window.innerWidth >= 768) {
-        this.deviceSize = "md";
+        this.deviceSize = "MD";
+        this.$emit('changeWidth', $size = "MD");
       } else {
-        this.deviceSize = "sm";
+        this.deviceSize = "SM";
+        this.$emit('changeWidth', $size = "SM");
       }
     }
   }
@@ -2189,6 +2195,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -2207,7 +2216,8 @@ __webpack_require__.r(__webpack_exports__);
       chosenElements: [],
       selectedBoxes: [],
       id: 0,
-      rowCount: 0
+      rowCount: 0,
+      deviceSize: null
     };
   },
   components: {
@@ -2245,6 +2255,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     addElement: function addElement(elements, index) {
       this.chosenElements.push(elements[index]);
+    },
+    updateWidth: function updateWidth(size) {
+      console.log(size);
+      this.deviceSize = size;
     }
   },
   mounted: function mounted() {
@@ -20969,7 +20983,7 @@ var render = function() {
         ? undefined
         : _vm._e(),
       _vm._v(" "),
-      _c("element-helper"),
+      _c("element-helper", { on: { changeWidth: _vm.updateWidth } }),
       _vm._v(" "),
       _c("info-bar", {
         attrs: {
