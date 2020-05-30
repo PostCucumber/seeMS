@@ -2032,11 +2032,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['rowCount', 'selectedBoxes'],
   data: function data() {
     return {
-      highlighted: [],
       BOXES_PER_ROW: 12
     };
   },
@@ -2068,6 +2068,12 @@ __webpack_require__.r(__webpack_exports__);
           this.$emit('removeFromList', $id);
         }
       }
+    },
+    clear: function clear() {
+      this.selectedBoxes.forEach(function (id) {
+        document.getElementById(id).classList.remove("bg-purple-800");
+      });
+      this.selectedBoxes.splice(0, this.selectedBoxes.length);
     }
   }
 });
@@ -2266,13 +2272,13 @@ __webpack_require__.r(__webpack_exports__);
     updateWidth: function updateWidth(size) {
       this.deviceSize = size;
     },
-    clearBoxes: function clearBoxes() {
-      var _this = this;
-
-      console.log("made it to parent");
-      this.selectedBoxes.forEach(function (box) {
-        _this.$refs.grid.toggleSelected(box);
+    sleep: function sleep(ms) {
+      return new Promise(function (resolve) {
+        return setTimeout(resolve, ms);
       });
+    },
+    clearBoxes: function clearBoxes() {
+      this.$refs.grid.clear();
     }
   },
   mounted: function mounted() {
@@ -20855,7 +20861,11 @@ var render = function() {
           _vm._v(" "),
           _vm.boxIsHighlighted(index)
             ? _c("p", { staticClass: "text-white" }, [_vm._v("–")])
-            : _vm._e()
+            : _vm._e(),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-red-300" }, [
+            _vm._v(_vm._s(_vm.selectedBoxes))
+          ])
         ]
       )
     }),

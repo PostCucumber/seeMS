@@ -103,11 +103,11 @@
             updateWidth: function (size) {
                 this.deviceSize = size;
             },
+            sleep: function (ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            },
             clearBoxes: function () {
-                console.log("made it to parent");
-                this.selectedBoxes.forEach(box => {
-                    this.$refs.grid.toggleSelected(box);
-                });
+                this.$refs.grid.clear();
             }
         },
         mounted() {
