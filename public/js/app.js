@@ -20645,7 +20645,13 @@ var render = function() {
       staticClass: "absolute w-full flex flex-wrap bottom-0 left-0 mb-20 ml-4"
     },
     [
-      _vm._m(0),
+      _c("button", { staticClass: "relative h-64 w-1/2 rounded-lg shadow" }, [
+        this.selectedBoxes.length != 0
+          ? _c("div", { staticClass: "absolute top-0 right-0 p-4" }, [
+              _vm._v("Clear All")
+            ])
+          : _vm._e()
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -20658,22 +20664,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      { staticClass: "relative h-64 w-1/2 rounded-lg shadow" },
-      [
-        _c("div", { staticClass: "absolute top-0 right-0 p-4" }, [
-          _vm._v("Clear All")
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
