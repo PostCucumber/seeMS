@@ -25,10 +25,10 @@
         methods: {
             toggleSelected: function ($id) {
                 if(this.boxIsHighlighted($id)) {
-                    document.getElementById($id).classList.remove("bg-purple-800");
+                    this.removeHighlight($id);
                     this.removeDeselectedElement($id);
                 } else {
-                    document.getElementById($id).classList.add("bg-purple-800");
+                    this.addHighlight($id);
                     this.$emit('addToList', $id);
                 }
             },
@@ -39,6 +39,12 @@
                     }
                 }
                 return false;
+            },
+            removeHighlight: function ($id) {
+                document.getElementById($id).classList.remove("bg-purple-800");
+            },
+            addHighlight: function ($id) {
+                document.getElementById($id).classList.add("bg-purple-800");
             },
             removeDeselectedElement: function ($id) {
                 for(var i = 0; i < this.selectedBoxes.length; ++i) {

@@ -2046,10 +2046,10 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     toggleSelected: function toggleSelected($id) {
       if (this.boxIsHighlighted($id)) {
-        document.getElementById($id).classList.remove("bg-purple-800");
+        this.removeHighlight($id);
         this.removeDeselectedElement($id);
       } else {
-        document.getElementById($id).classList.add("bg-purple-800");
+        this.addHighlight($id);
         this.$emit('addToList', $id);
       }
     },
@@ -2061,6 +2061,12 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return false;
+    },
+    removeHighlight: function removeHighlight($id) {
+      document.getElementById($id).classList.remove("bg-purple-800");
+    },
+    addHighlight: function addHighlight($id) {
+      document.getElementById($id).classList.add("bg-purple-800");
     },
     removeDeselectedElement: function removeDeselectedElement($id) {
       for (var i = 0; i < this.selectedBoxes.length; ++i) {
