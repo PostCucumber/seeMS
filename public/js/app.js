@@ -1919,6 +1919,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['selectedBoxes'],
   created: function created() {
@@ -1933,7 +1934,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      deviceSize: null
+      deviceSize: null,
+      sizeDescription: null
     };
   },
   methods: {
@@ -1942,15 +1944,19 @@ __webpack_require__.r(__webpack_exports__);
 
       if (window.innerWidth >= 1280) {
         this.deviceSize = "XL";
+        this.sizeDescription = "1280px and up";
         this.$emit('changeWidth', $size = "XL");
       } else if (window.innerWidth >= 1024) {
         this.deviceSize = "LG";
+        this.sizeDescription = "1024 to 1279px";
         this.$emit('changeWidth', $size = "LG");
       } else if (window.innerWidth >= 768) {
         this.deviceSize = "MD";
+        this.sizeDescription = "768 to 1023px";
         this.$emit('changeWidth', $size = "MD");
       } else {
         this.deviceSize = "SM";
+        this.sizeDescription = "Less than 768px";
         this.$emit('changeWidth', $size = "SM");
       }
     },
@@ -20666,26 +20672,42 @@ var render = function() {
       staticClass: "absolute w-full flex flex-wrap bottom-0 left-0 mb-20 ml-4"
     },
     [
-      _c("button", { staticClass: "relative h-64 w-1/2 rounded-lg shadow" }, [
-        this.selectedBoxes.length != 0
-          ? _c(
-              "div",
-              {
-                staticClass: "absolute top-0 right-0 p-4",
-                on: { click: this.clearGrid }
-              },
-              [_vm._v("Clear All")]
-            )
-          : _vm._e()
-      ]),
+      _c(
+        "div",
+        {
+          staticClass:
+            "relative h-64 w-1/2 rounded-lg shadow border-r border-b border-gray-200"
+        },
+        [
+          this.selectedBoxes.length != 0
+            ? _c(
+                "div",
+                {
+                  staticClass:
+                    "absolute top-0 right-0 p-4 text-red-700 font-bold",
+                  on: { click: this.clearGrid }
+                },
+                [_vm._v("Clear All")]
+              )
+            : _vm._e()
+        ]
+      ),
       _vm._v(" "),
       _c(
         "div",
         {
           staticClass:
-            "absolute flex items-center justify-center h-32 w-32 mr-8 bottom-0 right-0 text-white uppercase rounded-lg text-5xl round shadow bg-purple-800"
+            "absolute flex flex-wrap items-center justify-center h-32 w-32 mr-8 bottom-0 right-0 leading-none text-white text-center rounded-lg shadow bg-purple-800"
         },
-        [_vm._v("\n        " + _vm._s(_vm.deviceSize) + "\n    ")]
+        [
+          _c("span", { staticClass: "uppercase text-5xl w-full -mb-12" }, [
+            _vm._v(_vm._s(_vm.deviceSize))
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-sm w-full" }, [
+            _vm._v(_vm._s(_vm.sizeDescription))
+          ])
+        ]
       )
     ]
   )

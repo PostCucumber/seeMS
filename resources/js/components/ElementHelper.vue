@@ -1,10 +1,11 @@
 <template>
     <div class="absolute w-full flex flex-wrap bottom-0 left-0 mb-20 ml-4">
-        <button class="relative h-64 w-1/2 rounded-lg shadow">
-            <div v-if="this.selectedBoxes.length != 0" @click="this.clearGrid" class="absolute top-0 right-0 p-4">Clear All</div>
-        </button>
-        <div class="absolute flex items-center justify-center h-32 w-32 mr-8 bottom-0 right-0 text-white uppercase rounded-lg text-5xl round shadow bg-purple-800">
-            {{ deviceSize }}
+        <div class="relative h-64 w-1/2 rounded-lg shadow border-r border-b border-gray-200">
+            <div v-if="this.selectedBoxes.length != 0" @click="this.clearGrid" class="absolute top-0 right-0 p-4 text-red-700 font-bold">Clear All</div>
+        </div>
+        <div class="absolute flex flex-wrap items-center justify-center h-32 w-32 mr-8 bottom-0 right-0 leading-none text-white text-center rounded-lg shadow bg-purple-800">
+            <span class="uppercase text-5xl w-full -mb-12">{{ deviceSize }}</span>
+            <span class="text-sm w-full">{{ sizeDescription }}</span>
         </div>
     </div>
 </template>
@@ -26,7 +27,8 @@
         },
         data() {
             return {
-                deviceSize: null
+                deviceSize: null,
+                sizeDescription: null
             };
         },
         methods: {
@@ -34,15 +36,19 @@
                 var $size = null;
                 if(window.innerWidth >= 1280) {
                     this.deviceSize = "XL";
+                    this.sizeDescription = "1280px and up";
                     this.$emit('changeWidth', $size = "XL");
                 } else if (window.innerWidth >= 1024) {
                     this.deviceSize = "LG";
+                    this.sizeDescription = "1024 to 1279px";
                     this.$emit('changeWidth', $size = "LG");
                 } else if (window.innerWidth >= 768) {
                     this.deviceSize = "MD";
+                    this.sizeDescription = "768 to 1023px";
                     this.$emit('changeWidth', $size = "MD");
                 } else {
                     this.deviceSize = "SM";
+                    this.sizeDescription = "Less than 768px";
                     this.$emit('changeWidth', $size = "SM");
                 }  
             },
