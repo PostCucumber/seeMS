@@ -1953,6 +1953,10 @@ __webpack_require__.r(__webpack_exports__);
         this.deviceSize = "SM";
         this.$emit('changeWidth', $size = "SM");
       }
+    },
+    toggleSelected: function toggleSelected() {
+      console.log("made it");
+      this.$emit('toggleSelected');
     }
   }
 });
@@ -2159,6 +2163,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elements_Columns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./elements/Columns */ "./resources/js/components/elements/Columns.vue");
 /* harmony import */ var _elements_SearchBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./elements/SearchBox */ "./resources/js/components/elements/SearchBox.vue");
 /* harmony import */ var _elements_Navigation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./elements/Navigation */ "./resources/js/components/elements/Navigation.vue");
+//
 //
 //
 //
@@ -20647,9 +20652,14 @@ var render = function() {
     [
       _c("button", { staticClass: "relative h-64 w-1/2 rounded-lg shadow" }, [
         this.selectedBoxes.length != 0
-          ? _c("div", { staticClass: "absolute top-0 right-0 p-4" }, [
-              _vm._v("Clear All")
-            ])
+          ? _c(
+              "div",
+              {
+                staticClass: "absolute top-0 right-0 p-4",
+                on: { click: _vm.toggleSelected }
+              },
+              [_vm._v("Clear All")]
+            )
           : _vm._e()
       ]),
       _vm._v(" "),
@@ -20992,7 +21002,7 @@ var render = function() {
       _vm._v(" "),
       _c("element-helper", {
         attrs: { "selected-boxes": _vm.selectedBoxes },
-        on: { changeWidth: _vm.updateWidth }
+        on: { changeWidth: _vm.updateWidth, toggleSelected: _vm.toggleSelected }
       }),
       _vm._v(" "),
       _c("info-bar", {

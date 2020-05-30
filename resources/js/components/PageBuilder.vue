@@ -28,6 +28,7 @@
         </element-picker>
         <element-helper
             @changeWidth="updateWidth"
+            @toggleSelected="toggleSelected"
             v-bind:selected-boxes="selectedBoxes"
         >
         </element-helper>
