@@ -12,8 +12,6 @@
 <script>
     export default {
         props: [  
-            'chosenElements',
-            'index',
             'selectedBoxes'
         ],
         created() {

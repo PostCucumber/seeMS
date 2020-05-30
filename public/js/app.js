@@ -1920,7 +1920,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['chosenElements', 'index', 'selectedBoxes'],
+  props: ['selectedBoxes'],
   created: function created() {
     window.addEventListener("resize", this.getWindowWidth);
   },
@@ -2159,6 +2159,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elements_Columns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./elements/Columns */ "./resources/js/components/elements/Columns.vue");
 /* harmony import */ var _elements_SearchBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./elements/SearchBox */ "./resources/js/components/elements/SearchBox.vue");
 /* harmony import */ var _elements_Navigation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./elements/Navigation */ "./resources/js/components/elements/Navigation.vue");
+//
 //
 //
 //
@@ -20998,7 +20999,10 @@ var render = function() {
         ? undefined
         : _vm._e(),
       _vm._v(" "),
-      _c("element-helper", { on: { changeWidth: _vm.updateWidth } }),
+      _c("element-helper", {
+        attrs: { "selected-boxes": _vm.selectedBoxes },
+        on: { changeWidth: _vm.updateWidth }
+      }),
       _vm._v(" "),
       _c("info-bar", {
         attrs: {

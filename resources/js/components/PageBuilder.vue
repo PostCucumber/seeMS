@@ -28,6 +28,7 @@
         </element-picker>
         <element-helper
             @changeWidth="updateWidth"
+            v-bind:selected-boxes="selectedBoxes"
         >
         </element-helper>
         <info-bar
