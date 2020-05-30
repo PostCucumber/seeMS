@@ -1942,9 +1942,17 @@ __webpack_require__.r(__webpack_exports__);
     getWindowWidth: function getWindowWidth() {
       var $size = null;
 
-      if (window.innerWidth >= 1280) {
+      if (window.innerWidth >= 2560) {
+        this.deviceSize = "3XL";
+        this.sizeDescription = "2560px and up";
+        this.$emit('changeWidth', $size = "XXXL");
+      } else if (window.innerWidth >= 1920) {
+        this.deviceSize = "2XL";
+        this.sizeDescription = "1920 to 2559px";
+        this.$emit('changeWidth', $size = "2XL");
+      } else if (window.innerWidth >= 1280) {
         this.deviceSize = "XL";
-        this.sizeDescription = "1280px and up";
+        this.sizeDescription = "1280 to 1919px";
         this.$emit('changeWidth', $size = "XL");
       } else if (window.innerWidth >= 1024) {
         this.deviceSize = "LG";
@@ -1956,7 +1964,7 @@ __webpack_require__.r(__webpack_exports__);
         this.$emit('changeWidth', $size = "MD");
       } else {
         this.deviceSize = "SM";
-        this.sizeDescription = "Less than 768px";
+        this.sizeDescription = "Under 768px";
         this.$emit('changeWidth', $size = "SM");
       }
     },
@@ -20668,9 +20676,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "absolute w-full flex flex-wrap bottom-0 left-0 mb-20 ml-4"
-    },
+    { staticClass: "absolute w-full flex flex-wrap bottom-0 left-0 mb-20" },
     [
       _c(
         "div",

@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute w-full flex flex-wrap bottom-0 left-0 mb-20 ml-4">
+    <div class="absolute w-full flex flex-wrap bottom-0 left-0 mb-20">
         <div class="relative h-64 w-1/2 rounded-lg shadow border-r border-b border-gray-200">
             <div v-if="this.selectedBoxes.length != 0" @click="this.clearGrid" class="absolute top-0 right-0 p-4 text-red-700 font-bold">Clear All</div>
         </div>
@@ -34,9 +34,17 @@
         methods: {
             getWindowWidth: function () {
                 var $size = null;
-                if(window.innerWidth >= 1280) {
+                if(window.innerWidth >= 2560) {
+                    this.deviceSize = "3XL";
+                    this.sizeDescription = "2560px and up";
+                    this.$emit('changeWidth', $size = "XXXL");
+                } else if (window.innerWidth >= 1920) {
+                    this.deviceSize = "2XL";
+                    this.sizeDescription = "1920 to 2559px";
+                    this.$emit('changeWidth', $size = "2XL");
+                } else if (window.innerWidth >= 1280) {
                     this.deviceSize = "XL";
-                    this.sizeDescription = "1280px and up";
+                    this.sizeDescription = "1280 to 1919px";
                     this.$emit('changeWidth', $size = "XL");
                 } else if (window.innerWidth >= 1024) {
                     this.deviceSize = "LG";
@@ -48,9 +56,9 @@
                     this.$emit('changeWidth', $size = "MD");
                 } else {
                     this.deviceSize = "SM";
-                    this.sizeDescription = "Less than 768px";
-                    this.$emit('changeWidth', $size = "SM");
-                }  
+                    this.sizeDescription = "Under 768px"
+                    this.$emit('changeWidth', $size = "SM")
+                }
             },
             clearGrid: function () {
                 this.$emit('clearGrid');

@@ -4,6 +4,10 @@
 
 @tailwind utilities;
 
+* {
+    size: 1em;
+}
+
 h1 {
     @apply text-5xl;
     @apply font-thin;
