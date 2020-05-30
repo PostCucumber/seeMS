@@ -1918,7 +1918,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['chosenElements', 'index', 'selectedBoxes'],
   created: function created() {
@@ -2037,10 +2036,10 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     toggleSelected: function toggleSelected($id) {
       if (this.boxIsHighlighted($id)) {
-        document.getElementById($id).classList.remove("bg-gray-400");
+        document.getElementById($id).classList.remove("bg-purple-800");
         this.removeDeselectedElement($id);
       } else {
-        document.getElementById($id).classList.add("bg-gray-400");
+        document.getElementById($id).classList.add("bg-purple-800");
         this.$emit('addToList', $id);
       }
     },
@@ -20631,16 +20630,7 @@ var render = function() {
       staticClass: "absolute w-full flex flex-wrap bottom-0 left-0 mb-20 ml-4"
     },
     [
-      _c("div", { staticClass: "relative h-64 w-1/2 rounded-lg shadow" }, [
-        _c(
-          "span",
-          {
-            staticClass:
-              "absolute top-0 right-0 p-4 rounded-tr bg-purple-800 text-white font-bold uppercase"
-          },
-          [_vm._v(_vm._s(_vm.deviceSize))]
-        )
-      ]),
+      _c("div", { staticClass: "relative h-64 w-1/2 rounded-lg shadow" }),
       _vm._v(" "),
       _c(
         "div",
@@ -20811,7 +20801,7 @@ var render = function() {
         {
           key: index,
           staticClass:
-            "relative xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b border-gray-400 font-thin hover:font-bold text-3xl text-purple-500 focus:outline-none cursor-pointer",
+            "relative xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b border-gray-400 font-thin hover:font-bold text-3xl text-purple-800 focus:outline-none cursor-pointer",
           attrs: { id: index },
           on: {
             click: function($event) {
@@ -20821,7 +20811,7 @@ var render = function() {
         },
         [
           !_vm.boxIsHighlighted(index)
-            ? _c("p", { staticClass: "text-purple-500" }, [_vm._v("+")])
+            ? _c("p", { staticClass: "text-purple-800" }, [_vm._v("+")])
             : _vm._e(),
           _vm._v(" "),
           _vm.boxIsHighlighted(index)
