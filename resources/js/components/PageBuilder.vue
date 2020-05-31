@@ -9,6 +9,7 @@
             ref="grid"
             v-bind:selected-boxes="selectedBoxes"
             v-bind:row-count="rowCount"
+            v-bind:device-size="deviceSize"
             @addToList="addBox"
             @removeFromList="removeBox"
         >

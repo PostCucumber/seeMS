@@ -2045,7 +2045,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['rowCount', 'selectedBoxes'],
+  props: ['rowCount', 'selectedBoxes', 'deviceSize'],
   data: function data() {
     return {
       BOXES_PER_ROW: 12
@@ -2187,6 +2187,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elements_Columns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./elements/Columns */ "./resources/js/components/elements/Columns.vue");
 /* harmony import */ var _elements_SearchBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./elements/SearchBox */ "./resources/js/components/elements/SearchBox.vue");
 /* harmony import */ var _elements_Navigation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./elements/Navigation */ "./resources/js/components/elements/Navigation.vue");
+//
 //
 //
 //
@@ -20682,7 +20683,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "relative h-64 w-1/2 rounded-lg shadow border-r border-b border-gray-200"
+                "relative h-64 w-1/2 rounded-lg shadow border-r border-b border-gray-200 ml-4"
             },
             [
               this.selectedBoxes.length != 0
@@ -20690,7 +20691,7 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "absolute top-0 right-0 p-4 text-red-700 font-bold",
+                        "absolute top-0 right-0 p-4 text-red-700 font-bold cursor-pointer",
                       on: { click: this.clearGrid }
                     },
                     [_vm._v("Clear All")]
@@ -20834,7 +20835,11 @@ var render = function() {
             : _vm._e(),
           _vm._v(" "),
           _vm.boxIsHighlighted(index)
-            ? _c("p", { staticClass: "text-white" }, [_vm._v("–")])
+            ? _c(
+                "p",
+                { staticClass: "text-white", on: { click: this.clearRow } },
+                [_vm._v("–")]
+              )
             : _vm._e()
         ]
       )
@@ -20975,7 +20980,8 @@ var render = function() {
         ref: "grid",
         attrs: {
           "selected-boxes": _vm.selectedBoxes,
-          "row-count": _vm.rowCount
+          "row-count": _vm.rowCount,
+          "device-size": _vm.deviceSize
         },
         on: { addToList: _vm.addBox, removeFromList: _vm.removeBox }
       }),
