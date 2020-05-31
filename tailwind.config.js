@@ -5,23 +5,23 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'sm': '640px',
-      // => @media (min-width: 640px) { ... }
+      'sm': '28em',
+      // => @media (min-width: 448px) { ... }
 
-      'md': '768px',
+      'md': '48em',
       // => @media (min-width: 768px) { ... }
 
-      'lg': '1024px',
+      'lg': '64em',
       // => @media (min-width: 1024px) { ... }
 
-      'xl': '1280px',
-      // => @media (min-width: 1280px) { ... }
+      'xl': '85.375em',
+      // => @media (min-width: 1366px) { ... }
 
-      '2xl': '1920px',
-      // => @media (min-width: 1792px) { ... } 
+      '2xl': '120em',
+      // => @media (min-width: 1920px) { ... } 
       
-      '3xl': '2560px',
-      // => @media (min-width: 1792px) { ... } 
+      '3xl': '160em',
+      // => @media (min-width: 2560px) { ... } 
 
     },
     extend: {}

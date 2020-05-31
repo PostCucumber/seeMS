@@ -20712,11 +20712,11 @@ var render = function() {
                 "absolute flex flex-wrap items-center justify-center h-32 w-32 mr-8 bottom-0 right-0 leading-none text-white text-center rounded-lg shadow bg-purple-800"
             },
             [
-              _c("span", { staticClass: "uppercase text-5xl w-full -mb-12" }, [
+              _c("span", { staticClass: "uppercase w-full -mb-12" }, [
                 _vm._v(_vm._s(_vm.deviceSize))
               ]),
               _vm._v(" "),
-              _c("span", { staticClass: "text-sm w-full" }, [
+              _c("span", { staticClass: "w-full" }, [
                 _vm._v(_vm._s(_vm.sizeDescription))
               ])
             ]
@@ -20820,7 +20820,7 @@ var render = function() {
         {
           key: index,
           staticClass:
-            "relative xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b border-gray-400 font-thin hover:font-bold text-3xl text-purple-800 focus:outline-none cursor-pointer",
+            "relative xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b border-gray-400 font-thin hover:font-bold text-purple-800 focus:outline-none cursor-pointer",
           attrs: { id: index },
           on: {
             click: function($event) {
@@ -21036,7 +21036,7 @@ var render = function() {
         "button",
         {
           staticClass:
-            "w-20 mr-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg",
+            "w-20 mr-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 border rounded-lg",
           on: {
             click: function($event) {
               return _vm.addRow()
@@ -21050,7 +21050,7 @@ var render = function() {
         "button",
         {
           staticClass:
-            "w-20 ml-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 text-6xl border rounded-lg",
+            "w-20 ml-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 border rounded-lg",
           attrs: { disabled: _vm.rowCount < 1 },
           on: {
             click: function($event) {

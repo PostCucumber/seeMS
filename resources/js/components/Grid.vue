@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-wrap items-start w-full">
-        <button @click="toggleSelected(index)" v-for="(box, index) in rowCount*BOXES_PER_ROW" v-bind:key="index" :id="index" class="relative xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b border-gray-400 font-thin hover:font-bold text-3xl text-purple-800 focus:outline-none cursor-pointer">
+        <button @click="toggleSelected(index)" v-for="(box, index) in rowCount*BOXES_PER_ROW" v-bind:key="index" :id="index" class="relative xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b border-gray-400 font-thin hover:font-bold text-purple-800 focus:outline-none cursor-pointer">
             <p v-if="!boxIsHighlighted(index)" class="text-purple-800">+</p>
             <p v-if="boxIsHighlighted(index)" class="text-white">&ndash;</p>
         </button>

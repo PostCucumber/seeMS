@@ -595,39 +595,39 @@ video {
   width: 100%;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 28em) {
   .container {
-    max-width: 640px;
+    max-width: 28em;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .container {
-    max-width: 768px;
+    max-width: 48em;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64em) {
   .container {
-    max-width: 1024px;
+    max-width: 64em;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 85.375em) {
   .container {
-    max-width: 1280px;
+    max-width: 85.375em;
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 120em) {
   .container {
-    max-width: 1920px;
+    max-width: 120em;
   }
 }
 
-@media (min-width: 2560px) {
+@media (min-width: 160em) {
   .container {
-    max-width: 2560px;
+    max-width: 160em;
   }
 }
 
@@ -7829,27 +7829,27 @@ video {
 }
 
 .max-w-screen-sm {
-  max-width: 640px;
+  max-width: 28em;
 }
 
 .max-w-screen-md {
-  max-width: 768px;
+  max-width: 48em;
 }
 
 .max-w-screen-lg {
-  max-width: 1024px;
+  max-width: 64em;
 }
 
 .max-w-screen-xl {
-  max-width: 1280px;
+  max-width: 85.375em;
 }
 
 .max-w-screen-2xl {
-  max-width: 1920px;
+  max-width: 120em;
 }
 
 .max-w-screen-3xl {
-  max-width: 2560px;
+  max-width: 160em;
 }
 
 .min-h-0 {
@@ -18151,13 +18151,46 @@ video {
   --header-line-height: 1.25;
 }
 
-body {
-  font-size: var(--base-font-size);
-  line-height: var(--base-line-height);
+@media (min-width: 28em) {
+  body {
+    font-size: 0.875rem;
+    line-height: 1;
+  }
 }
 
-* {
-  size: 1em;
+@media (min-width: 48em) {
+  body {
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+}
+
+@media (min-width: 64em) {
+  body {
+    font-size: 1.125rem;
+    line-height: 1.375;
+  }
+}
+
+@media (min-width: 85.375em) {
+  body {
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+}
+
+@media (min-width: 120em) {
+  body {
+    font-size: 1.5rem;
+    line-height: 1.625;
+  }
+}
+
+@media (min-width: 160em) {
+  body {
+    font-size: 1.875rem;
+    line-height: 2;
+  }
 }
 
 h1 {
@@ -18180,7 +18213,7 @@ h4 {
   font-weight: 600;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 28em) {
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -25132,27 +25165,27 @@ h4 {
   }
 
   .sm\:max-w-screen-sm {
-    max-width: 640px;
+    max-width: 28em;
   }
 
   .sm\:max-w-screen-md {
-    max-width: 768px;
+    max-width: 48em;
   }
 
   .sm\:max-w-screen-lg {
-    max-width: 1024px;
+    max-width: 64em;
   }
 
   .sm\:max-w-screen-xl {
-    max-width: 1280px;
+    max-width: 85.375em;
   }
 
   .sm\:max-w-screen-2xl {
-    max-width: 1920px;
+    max-width: 120em;
   }
 
   .sm\:max-w-screen-3xl {
-    max-width: 2560px;
+    max-width: 160em;
   }
 
   .sm\:min-h-0 {
@@ -35449,7 +35482,7 @@ h4 {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .md\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -42401,27 +42434,27 @@ h4 {
   }
 
   .md\:max-w-screen-sm {
-    max-width: 640px;
+    max-width: 28em;
   }
 
   .md\:max-w-screen-md {
-    max-width: 768px;
+    max-width: 48em;
   }
 
   .md\:max-w-screen-lg {
-    max-width: 1024px;
+    max-width: 64em;
   }
 
   .md\:max-w-screen-xl {
-    max-width: 1280px;
+    max-width: 85.375em;
   }
 
   .md\:max-w-screen-2xl {
-    max-width: 1920px;
+    max-width: 120em;
   }
 
   .md\:max-w-screen-3xl {
-    max-width: 2560px;
+    max-width: 160em;
   }
 
   .md\:min-h-0 {
@@ -52718,7 +52751,7 @@ h4 {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64em) {
   .lg\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -59670,27 +59703,27 @@ h4 {
   }
 
   .lg\:max-w-screen-sm {
-    max-width: 640px;
+    max-width: 28em;
   }
 
   .lg\:max-w-screen-md {
-    max-width: 768px;
+    max-width: 48em;
   }
 
   .lg\:max-w-screen-lg {
-    max-width: 1024px;
+    max-width: 64em;
   }
 
   .lg\:max-w-screen-xl {
-    max-width: 1280px;
+    max-width: 85.375em;
   }
 
   .lg\:max-w-screen-2xl {
-    max-width: 1920px;
+    max-width: 120em;
   }
 
   .lg\:max-w-screen-3xl {
-    max-width: 2560px;
+    max-width: 160em;
   }
 
   .lg\:min-h-0 {
@@ -69987,7 +70020,7 @@ h4 {
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 85.375em) {
   .xl\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -76939,27 +76972,27 @@ h4 {
   }
 
   .xl\:max-w-screen-sm {
-    max-width: 640px;
+    max-width: 28em;
   }
 
   .xl\:max-w-screen-md {
-    max-width: 768px;
+    max-width: 48em;
   }
 
   .xl\:max-w-screen-lg {
-    max-width: 1024px;
+    max-width: 64em;
   }
 
   .xl\:max-w-screen-xl {
-    max-width: 1280px;
+    max-width: 85.375em;
   }
 
   .xl\:max-w-screen-2xl {
-    max-width: 1920px;
+    max-width: 120em;
   }
 
   .xl\:max-w-screen-3xl {
-    max-width: 2560px;
+    max-width: 160em;
   }
 
   .xl\:min-h-0 {
@@ -87256,7 +87289,7 @@ h4 {
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 120em) {
   .\32xl\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -94208,27 +94241,27 @@ h4 {
   }
 
   .\32xl\:max-w-screen-sm {
-    max-width: 640px;
+    max-width: 28em;
   }
 
   .\32xl\:max-w-screen-md {
-    max-width: 768px;
+    max-width: 48em;
   }
 
   .\32xl\:max-w-screen-lg {
-    max-width: 1024px;
+    max-width: 64em;
   }
 
   .\32xl\:max-w-screen-xl {
-    max-width: 1280px;
+    max-width: 85.375em;
   }
 
   .\32xl\:max-w-screen-2xl {
-    max-width: 1920px;
+    max-width: 120em;
   }
 
   .\32xl\:max-w-screen-3xl {
-    max-width: 2560px;
+    max-width: 160em;
   }
 
   .\32xl\:min-h-0 {
@@ -104525,7 +104558,7 @@ h4 {
   }
 }
 
-@media (min-width: 2560px) {
+@media (min-width: 160em) {
   .\33xl\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -111477,27 +111510,27 @@ h4 {
   }
 
   .\33xl\:max-w-screen-sm {
-    max-width: 640px;
+    max-width: 28em;
   }
 
   .\33xl\:max-w-screen-md {
-    max-width: 768px;
+    max-width: 48em;
   }
 
   .\33xl\:max-w-screen-lg {
-    max-width: 1024px;
+    max-width: 64em;
   }
 
   .\33xl\:max-w-screen-xl {
-    max-width: 1280px;
+    max-width: 85.375em;
   }
 
   .\33xl\:max-w-screen-2xl {
-    max-width: 1920px;
+    max-width: 120em;
   }
 
   .\33xl\:max-w-screen-3xl {
-    max-width: 2560px;
+    max-width: 160em;
   }
 
   .\33xl\:min-h-0 {

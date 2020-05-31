@@ -10,8 +10,8 @@
             </div>
         </div>
         <div class="absolute flex flex-wrap items-center justify-center h-32 w-32 mr-8 bottom-0 right-0 leading-none text-white text-center rounded-lg shadow bg-purple-800">
-            <span class="uppercase text-5xl w-full -mb-12">{{ deviceSize }}</span>
-            <span class="text-sm w-full">{{ sizeDescription }}</span>
+            <span class="uppercase w-full -mb-12">{{ deviceSize }}</span>
+            <span class="w-full">{{ sizeDescription }}</span>
         </div>
     </div>
 </template>

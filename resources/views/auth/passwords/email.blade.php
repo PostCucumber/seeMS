@@ -6,7 +6,7 @@
             <div class="w-full max-w-sm">
 
                 @if (session('status'))
-                    <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
+                    <div class="border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
                         {{ session('status') }}
                     </div>
                 @endif
@@ -21,14 +21,14 @@
                         @csrf
 
                         <div class="flex flex-wrap mb-6">
-                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">
+                            <label for="email" class="block text-gray-700 font-bold mb-2">
                                 {{ __('E-Mail Address') }}:
                             </label>
 
                             <input id="email" type="email" class="form-input w-full @error('email') border-red-500 @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                             @error('email')
-                                <p class="text-red-500 text-xs italic mt-4">
+                                <p class="text-red-500 italic mt-4">
                                     {{ $message }}
                                 </p>
                             @enderror
@@ -39,7 +39,7 @@
                                 {{ __('Send Password Reset Link') }}
                             </button>
 
-                            <p class="w-full text-xs text-center text-gray-700 mt-8 -mb-4">
+                            <p class="w-full text-center text-gray-700 mt-8 -mb-4">
                                 <a class="text-blue-500 hover:text-blue-700 no-underline" href="{{ route('login') }}">
                                     {{ __('Back to login') }}
                                 </a>
