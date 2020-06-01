@@ -20699,29 +20699,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return this.selectedBoxes.length != 0
-    ? _c(
-        "div",
-        { staticClass: "absolute w-full flex flex-wrap bottom-0 left-0 mb-20" },
-        [
-          _c(
+  return _c(
+    "div",
+    { staticClass: "absolute w-full flex flex-wrap bottom-0 left-0 mb-20" },
+    [
+      this.selectedBoxes.length != 0
+        ? _c(
             "div",
             {
               staticClass:
                 "relative h-64 w-1/2 rounded-lg shadow border-r border-b border-gray-200 ml-4"
             },
             [
-              this.selectedBoxes.length != 0
-                ? _c(
-                    "div",
-                    {
-                      staticClass:
-                        "absolute top-0 right-0 p-4 text-red-700 font-bold cursor-pointer",
-                      on: { click: this.clearGrid }
-                    },
-                    [_vm._v("Clear All")]
-                  )
-                : _vm._e(),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "absolute top-0 right-0 p-4 text-red-700 font-bold cursor-pointer",
+                  on: { click: this.clearGrid }
+                },
+                [_vm._v("Clear All")]
+              ),
               _vm._v(" "),
               _c(
                 "div",
@@ -20729,27 +20727,27 @@ var render = function() {
                 1
               )
             ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "absolute flex flex-wrap items-center justify-center h-32 w-32 mr-8 bottom-0 right-0 leading-none text-white text-center rounded-lg shadow bg-purple-800"
-            },
-            [
-              _c("span", { staticClass: "uppercase w-full -mb-12" }, [
-                _vm._v(_vm._s(_vm.deviceSize))
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "w-full" }, [
-                _vm._v(_vm._s(_vm.sizeDescription))
-              ])
-            ]
           )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "absolute flex flex-wrap items-center justify-center h-32 w-32 mr-8 bottom-0 right-0 leading-none text-white text-center rounded-lg shadow bg-purple-800"
+        },
+        [
+          _c("span", { staticClass: "uppercase w-full -mb-12" }, [
+            _vm._v(_vm._s(_vm.deviceSize))
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "w-full" }, [
+            _vm._v(_vm._s(_vm.sizeDescription))
+          ])
         ]
       )
-    : _vm._e()
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
