@@ -2284,37 +2284,30 @@ __webpack_require__.r(__webpack_exports__);
       ++this.rowCount;
     },
     removeRow: function removeRow() {
+      this.determineBoxesInRow();
+      var boxesInRow = this.boxesInRow;
+      this.selectedBoxes = this.selectedBoxes.filter(function (box) {
+        return !boxesInRow.includes(box);
+      });
+      boxesInRow = [];
+      this.boxesInRow = boxesInRow;
+      --this.rowCount;
+    },
+    determineBoxesInRow: function determineBoxesInRow() {
       var _this = this;
 
       var min = this.rowCount * 12 - 12;
       var max = this.rowCount * 12 - 1;
       var count = 0;
       this.selectedBoxes.forEach(function (box) {
-        console.log(count);
-
         if (box >= min && box <= max) {
-          console.log(box + " is in this row");
-
           _this.$refs.grid.removeHighlight(box);
 
           _this.boxesInRow.push(_this.selectedBoxes[count]);
-        } else {
-          console.log(box + " is not in this row");
         }
 
         ++count;
       });
-      var boxesInRow = this.boxesInRow;
-      console.log("Selected Boxes before: " + this.selectedBoxes);
-      console.log("Boxes in row before: " + boxesInRow);
-      this.selectedBoxes = this.selectedBoxes.filter(function (box) {
-        return !boxesInRow.includes(box);
-      });
-      console.log("Selected Boxes after: " + this.selectedBoxes);
-      console.log("Boxes in row after: " + boxesInRow);
-      boxesInRow = [];
-      this.boxesInRow = boxesInRow;
-      --this.rowCount;
     },
     togglePicker: function togglePicker() {
       this.pickingElement = !this.pickingElement;
