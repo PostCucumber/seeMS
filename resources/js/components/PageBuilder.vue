@@ -8,6 +8,13 @@
                 class="w-full"
             />
         </div>
+        <div v-if="confirming" class="absolute z-50 flex items-center justify-center mx-auto">
+            <div class="m-10 bg-white shadow rounded p-10">
+                <p class="mb-4">Are you sure you want to do this?</p>
+                <button @click="this.confirming = false" class="px-4 py-2 border rounded-full">No</button>
+                <button @click="clearGrid(); closeWindow()" class="inline px-4 py-2 border rounded-full">Yes</button>
+            </div>
+        </div>
         <grid
             ref="grid"
             v-bind:selected-boxes="selectedBoxes"
@@ -28,6 +35,7 @@
             @changeWidth="updateWidth"
             @clearGrid="clearGrid"
             @addElement="addElement"
+            @getConfirmation="getConfirmation"
             v-bind:selected-boxes="selectedBoxes"
             v-bind:elements="elements"
         >
@@ -63,7 +71,8 @@
                 rowCount: 0,
                 deviceSize: null,
                 boxesInRow: [],
-                element: null
+                element: null,
+                confirming: false
             }
         },
         components: {
@@ -132,6 +141,12 @@
             },
             updateWidth: function (size) {
                 this.deviceSize = size;
+            },
+            getConfirmation: function () {
+                this.confirming = true;
+            },
+            closeWindow: function () {
+                this.confirming = false;
             },
             clearGrid: function () {
                 this.$refs.grid.clearGrid();

@@ -1983,6 +1983,9 @@ __webpack_require__.r(__webpack_exports__);
         this.$emit('changeWidth', $size = "SM");
       }
     },
+    getConfirmation: function getConfirmation() {
+      this.$emit('getConfirmation');
+    },
     clearGrid: function clearGrid() {
       this.$emit('clearGrid');
     }
@@ -2231,6 +2234,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2252,7 +2263,8 @@ __webpack_require__.r(__webpack_exports__);
       rowCount: 0,
       deviceSize: null,
       boxesInRow: [],
-      element: null
+      element: null,
+      confirming: false
     };
   },
   components: {
@@ -2319,6 +2331,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     updateWidth: function updateWidth(size) {
       this.deviceSize = size;
+    },
+    getConfirmation: function getConfirmation() {
+      this.confirming = true;
+    },
+    closeWindow: function closeWindow() {
+      this.confirming = false;
     },
     clearGrid: function clearGrid() {
       this.$refs.grid.clearGrid();
@@ -20718,7 +20736,7 @@ var render = function() {
                 {
                   staticClass:
                     "absolute top-0 right-0 p-4 text-red-700 font-bold cursor-pointer",
-                  on: { click: this.clearGrid }
+                  on: { click: this.getConfirmation }
                 },
                 [_vm._v("Clear All")]
               ),
@@ -21019,6 +21037,50 @@ var render = function() {
         )
       }),
       _vm._v(" "),
+      _vm.confirming
+        ? _c(
+            "div",
+            {
+              staticClass:
+                "absolute z-50 flex items-center justify-center mx-auto"
+            },
+            [
+              _c("div", { staticClass: "m-10 bg-white shadow rounded p-10" }, [
+                _c("p", { staticClass: "mb-4" }, [
+                  _vm._v("Are you sure you want to do this?")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "px-4 py-2 border rounded-full",
+                    on: {
+                      click: function($event) {
+                        this.confirming = false
+                      }
+                    }
+                  },
+                  [_vm._v("No")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "inline px-4 py-2 border rounded-full",
+                    on: {
+                      click: function($event) {
+                        _vm.clearGrid()
+                        _vm.closeWindow()
+                      }
+                    }
+                  },
+                  [_vm._v("Yes")]
+                )
+              ])
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _c("grid", {
         ref: "grid",
         attrs: {
@@ -21040,7 +21102,8 @@ var render = function() {
         on: {
           changeWidth: _vm.updateWidth,
           clearGrid: _vm.clearGrid,
-          addElement: _vm.addElement
+          addElement: _vm.addElement,
+          getConfirmation: _vm.getConfirmation
         }
       }),
       _vm._v(" "),

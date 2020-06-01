@@ -1,7 +1,7 @@
 <template>
     <div class="absolute w-full flex flex-wrap bottom-0 left-0 mb-20">
         <div v-if="this.selectedBoxes.length != 0" class="relative h-64 w-1/2 rounded-lg shadow border-r border-b border-gray-200 ml-4">
-            <div @click="this.clearGrid" class="absolute top-0 right-0 p-4 text-red-700 font-bold cursor-pointer">Clear All</div>
+            <div @click="this.getConfirmation" class="absolute top-0 right-0 p-4 text-red-700 font-bold cursor-pointer">Clear All</div>
             <div>
                 <ElementPicker
                     v-bind:elements="elements"
@@ -75,6 +75,9 @@
                     this.sizeDescription = "Under 768px"
                     this.$emit('changeWidth', $size = "SM")
                 }
+            },
+            getConfirmation: function () {
+                this.$emit('getConfirmation');
             },
             clearGrid: function () {
                 this.$emit('clearGrid');
