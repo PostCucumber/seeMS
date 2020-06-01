@@ -2045,12 +2045,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['rowCount', 'selectedBoxes', 'deviceSize'],
+  props: ['rowCount', 'selectedBoxes', 'deviceSize', 'boxesInRow'],
   data: function data() {
     return {
-      BOXES_PER_ROW: 12,
-      boxesInRow: [],
-      newList: []
+      BOXES_PER_ROW: 12
     };
   },
   mounted: function mounted() {
@@ -2095,50 +2093,6 @@ __webpack_require__.r(__webpack_exports__);
         _this.removeHighlight(id);
       });
       this.selectedBoxes.splice(0, this.selectedBoxes.length);
-    },
-    clearRow: function clearRow() {
-      var _this2 = this;
-
-      //rowCount is the row we're dealing with
-      //we only want to dehighlight and remove boxes in the row
-      //the rows are broken up into 12 boxes each
-      //may have to have seperate conditonals for each screen size
-      //if a box is selected and it is in this row, then deselect it
-      // 1 0-11
-      // 2 12-23
-      var min = this.rowCount * 12 - 12;
-      var max = this.rowCount * 12 - 1;
-      var count = 0;
-      this.selectedBoxes.forEach(function (box) {
-        console.log(count);
-
-        if (box >= min && box <= max) {
-          console.log(box + " is in this row");
-
-          _this2.removeHighlight(box);
-
-          _this2.boxesInRow.push(_this2.selectedBoxes[count]);
-        } else {
-          console.log(box + " is not in this row");
-        }
-
-        ++count;
-      });
-      count = 0;
-      this.selectedBoxes.forEach(function (box) {
-        _this2.boxesInRow.forEach(function (boxToBeDeleted) {
-          if (box != boxToBeDeleted) {
-            console.log("Adding to new list: " + _this2.selectedBoxes[count]);
-
-            _this2.newList.push(_this2.selectedBoxes[count]);
-          } else {
-            console.log(_this2.selectedBoxes[count] + "Does not need to be deleted");
-          }
-        });
-
-        ++count;
-      });
-      console.log("New list: " + newList);
     }
   }
 });
@@ -2278,6 +2232,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2297,7 +2252,8 @@ __webpack_require__.r(__webpack_exports__);
       selectedBoxes: [],
       id: 0,
       rowCount: 0,
-      deviceSize: null
+      deviceSize: null,
+      boxesInRow: []
     };
   },
   components: {
@@ -2328,7 +2284,36 @@ __webpack_require__.r(__webpack_exports__);
       ++this.rowCount;
     },
     removeRow: function removeRow() {
-      this.$refs.grid.clearRow();
+      var _this = this;
+
+      var min = this.rowCount * 12 - 12;
+      var max = this.rowCount * 12 - 1;
+      var count = 0;
+      this.selectedBoxes.forEach(function (box) {
+        console.log(count);
+
+        if (box >= min && box <= max) {
+          console.log(box + " is in this row");
+
+          _this.$refs.grid.removeHighlight(box);
+
+          _this.boxesInRow.push(_this.selectedBoxes[count]);
+        } else {
+          console.log(box + " is not in this row");
+        }
+
+        ++count;
+      });
+      var boxesInRow = this.boxesInRow;
+      console.log("Selected Boxes before: " + this.selectedBoxes);
+      console.log("Boxes in row before: " + boxesInRow);
+      this.selectedBoxes = this.selectedBoxes.filter(function (box) {
+        return !boxesInRow.includes(box);
+      });
+      console.log("Selected Boxes after: " + this.selectedBoxes);
+      console.log("Boxes in row after: " + boxesInRow);
+      boxesInRow = [];
+      this.boxesInRow = boxesInRow;
       --this.rowCount;
     },
     togglePicker: function togglePicker() {
@@ -21024,7 +21009,8 @@ var render = function() {
         attrs: {
           "selected-boxes": _vm.selectedBoxes,
           "row-count": _vm.rowCount,
-          "device-size": _vm.deviceSize
+          "device-size": _vm.deviceSize,
+          "boxes-in-row": _vm.boxesInRow
         },
         on: { addToList: _vm.addBox, removeFromList: _vm.removeBox }
       }),

@@ -13,7 +13,7 @@
 <script>
     export default {
         props: [  
-            'rowCount'
+            'rowCount',
         ],
         methods: {
             addRow: function () {

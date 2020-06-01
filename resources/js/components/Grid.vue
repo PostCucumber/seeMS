@@ -12,13 +12,12 @@
         props: [
             'rowCount',
             'selectedBoxes',
-            'deviceSize'
+            'deviceSize',
+            'boxesInRow'
         ],
         data: function() {
             return {
                 BOXES_PER_ROW: 12,
-                boxesInRow: [],
-                newList: []
             };
         },
         mounted() {
@@ -60,48 +59,6 @@
                     this.removeHighlight(id);
                 });
                 this.selectedBoxes.splice(0, this.selectedBoxes.length);
-            },
-            clearRow: function () {
-                //rowCount is the row we're dealing with
-                //we only want to dehighlight and remove boxes in the row
-                //the rows are broken up into 12 boxes each
-                //may have to have seperate conditonals for each screen size
-                //if a box is selected and it is in this row, then deselect it
-                // 1 0-11
-                // 2 12-23
-
-                var min = this.rowCount*12-12;
-                var max = this.rowCount*12-1;
-
-                var count = 0
-
-
-                this.selectedBoxes.forEach(box => {
-                    console.log(count);
-                    if(box >= min && box <= max) {
-                        console.log(box + " is in this row")
-                        this.removeHighlight(box);
-                        this.boxesInRow.push(this.selectedBoxes[count]);
-                    } else {
-                        console.log(box + " is not in this row")
-                    }
-                    ++count
-                });
-                
-                count = 0;
-
-                this.selectedBoxes.forEach(box => {
-                    this.boxesInRow.forEach(boxToBeDeleted => {
-                        if(box != boxToBeDeleted) {
-                            console.log("Adding to new list: " + this.selectedBoxes[count]);
-                            this.newList.push(this.selectedBoxes[count]);
-                        } else {
-                            console.log(this.selectedBoxes[count] + "Does not need to be deleted")
-                        }
-                    });
-                    ++count;
-                });
-                console.log("New list: " + newList);
             }
         },
     }

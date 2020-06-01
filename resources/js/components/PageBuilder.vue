@@ -10,6 +10,7 @@
             v-bind:selected-boxes="selectedBoxes"
             v-bind:row-count="rowCount"
             v-bind:device-size="deviceSize"
+            v-bind:boxes-in-row="boxesInRow"
             @addToList="addBox"
             @removeFromList="removeBox"
         >
@@ -64,7 +65,8 @@
                 selectedBoxes: [],
                 id: 0,
                 rowCount: 0,
-                deviceSize: null
+                deviceSize: null,
+                boxesInRow: []
             }
         },
         components: {
@@ -94,7 +96,38 @@
                 ++this.rowCount;
             },
             removeRow: function () {
-                this.$refs.grid.clearRow();
+                var min = this.rowCount*12-12;
+                var max = this.rowCount*12-1;
+
+                var count = 0
+
+                this.selectedBoxes.forEach(box => {
+                    console.log(count);
+                    if(box >= min && box <= max) {
+                        console.log(box + " is in this row")
+                        this.$refs.grid.removeHighlight(box);
+                        this.boxesInRow.push(this.selectedBoxes[count]);
+                    } else {
+                        console.log(box + " is not in this row")
+                    }
+                    ++count
+                });
+
+                var boxesInRow = this.boxesInRow;
+
+                console.log("Selected Boxes before: " + this.selectedBoxes);
+                console.log("Boxes in row before: " + boxesInRow);
+
+                this.selectedBoxes = this.selectedBoxes.filter(function(box) {
+                    return !(boxesInRow.includes(box));
+                });
+
+                console.log("Selected Boxes after: " + this.selectedBoxes);
+                console.log("Boxes in row after: " + boxesInRow);
+
+                boxesInRow = []
+                this.boxesInRow = boxesInRow;
+
                 --this.rowCount;
             },
             togglePicker: function () {
