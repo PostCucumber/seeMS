@@ -21,17 +21,10 @@
             @removeRow="removeRow"
         >
         </row-control>
-        <element-picker
-            v-if="false"
-            v-bind:picking-element="pickingElement"
-            v-bind:elements="elements"
-            @togglePicker="togglePicker"
-            @addElement="addElement"
-        >
-        </element-picker>
         <element-helper
             @changeWidth="updateWidth"
             @clearGrid="clearGrid"
+            @addElement="addElement"
             v-bind:selected-boxes="selectedBoxes"
             v-bind:elements="elements"
         >
@@ -57,6 +50,7 @@
     export default {
         props: {
             elements: Array,
+            //element: String
         },
         data() {
             return {
@@ -66,7 +60,8 @@
                 id: 0,
                 rowCount: 0,
                 deviceSize: null,
-                boxesInRow: []
+                boxesInRow: [],
+                element: null
             }
         },
         components: {
@@ -83,6 +78,9 @@
             addBox: function (id) {
                 this.selectedBoxes.push(id);
                 console.log("Selected box " + id);
+            },
+            addElement: function (element) {
+                this.chosenElements.push(element);
             },
             removeBox: function (id) {
                 for(var i = 0; i < this.selectedBoxes.length; ++i) {
@@ -120,15 +118,12 @@
                         this.$refs.grid.removeHighlight(box);
                         this.boxesInRow.push(this.selectedBoxes[count]);
                     }
-                    
+
                     ++count
                 });
             },
             togglePicker: function () {
                 this.pickingElement = !this.pickingElement;   
-            },
-            addElement: function (elements, index) {
-                this.chosenElements.push(elements[index])
             },
             updateWidth: function (size) {
                 this.deviceSize = size;

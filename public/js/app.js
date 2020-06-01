@@ -1927,6 +1927,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['selectedBoxes', 'elements'],
@@ -1950,6 +1951,9 @@ __webpack_require__.r(__webpack_exports__);
     ElementPicker: _ElementPicker__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
+    addElement: function addElement(element) {
+      this.$emit('addElement', element);
+    },
     getWindowWidth: function getWindowWidth() {
       var $size = null;
 
@@ -2008,15 +2012,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['elements'],
+  props: ['elements', 'element'],
   methods: {
     togglePicker: function togglePicker() {
       this.$emit('togglePicker');
     },
-    addElement: function addElement($elements, $index) {
-      console.log($elements);
-      console.log($index);
-      this.$emit('addElement', $elements, $index);
+    addElement: function addElement($element) {
+      this.$emit('addElement', $element);
     }
   },
   mounted: function mounted() {
@@ -2226,13 +2228,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -2243,7 +2238,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    elements: Array
+    elements: Array //element: String
+
   },
   data: function data() {
     return {
@@ -2253,7 +2249,8 @@ __webpack_require__.r(__webpack_exports__);
       id: 0,
       rowCount: 0,
       deviceSize: null,
-      boxesInRow: []
+      boxesInRow: [],
+      element: null
     };
   },
   components: {
@@ -2270,6 +2267,9 @@ __webpack_require__.r(__webpack_exports__);
     addBox: function addBox(id) {
       this.selectedBoxes.push(id);
       console.log("Selected box " + id);
+    },
+    addElement: function addElement(element) {
+      this.chosenElements.push(element);
     },
     removeBox: function removeBox(id) {
       for (var i = 0; i < this.selectedBoxes.length; ++i) {
@@ -2311,9 +2311,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     togglePicker: function togglePicker() {
       this.pickingElement = !this.pickingElement;
-    },
-    addElement: function addElement(elements, index) {
-      this.chosenElements.push(elements[index]);
     },
     updateWidth: function updateWidth(size) {
       this.deviceSize = size;
@@ -20723,7 +20720,12 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                [_c("ElementPicker", { attrs: { elements: _vm.elements } })],
+                [
+                  _c("ElementPicker", {
+                    attrs: { elements: _vm.elements },
+                    on: { addElement: _vm.addElement }
+                  })
+                ],
                 1
               )
             ]
@@ -20778,29 +20780,21 @@ var render = function() {
       "div",
       { staticClass: "flex flex-wrap mx-auto py-8" },
       _vm._l(_vm.elements, function(element, index) {
-        return _c(
-          "div",
-          {
-            key: index,
-            staticClass: "w-1/4",
-            on: {
-              click: function($event) {
-                _vm.togglePicker()
-                _vm.addElement(_vm.elements, index)
+        return _c("div", { key: index, staticClass: "w-1/4" }, [
+          _c(
+            "div",
+            {
+              staticClass: "bg-gray-200 m-4 p-4 rounded cursor-pointer",
+              attrs: { id: element },
+              on: {
+                click: function($event) {
+                  return _vm.addElement(element)
+                }
               }
-            }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "bg-gray-200 m-4 p-4 rounded cursor-pointer",
-                attrs: { id: element }
-              },
-              [_vm._v(_vm._s(_vm.elements[index]))]
-            )
-          ]
-        )
+            },
+            [_vm._v(_vm._s(_vm.elements[index]))]
+          )
+        ])
       }),
       0
     )
@@ -21011,13 +21005,13 @@ var render = function() {
         on: { addRow: _vm.addRow, removeRow: _vm.removeRow }
       }),
       _vm._v(" "),
-      false
-        ? undefined
-        : _vm._e(),
-      _vm._v(" "),
       _c("element-helper", {
         attrs: { "selected-boxes": _vm.selectedBoxes, elements: _vm.elements },
-        on: { changeWidth: _vm.updateWidth, clearGrid: _vm.clearGrid }
+        on: {
+          changeWidth: _vm.updateWidth,
+          clearGrid: _vm.clearGrid,
+          addElement: _vm.addElement
+        }
       }),
       _vm._v(" "),
       _c("info-bar", {

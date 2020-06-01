@@ -5,6 +5,7 @@
             <div>
                 <ElementPicker
                     v-bind:elements="elements"
+                    @addElement="addElement"
                 >
                 </ElementPicker>
             </div>
@@ -44,6 +45,9 @@
             ElementPicker
         },
         methods: {
+            addElement: function (element) {
+                this.$emit('addElement', element);
+            },
             getWindowWidth: function () {
                 var $size = null;
                 if(window.innerWidth >= 2560) {
