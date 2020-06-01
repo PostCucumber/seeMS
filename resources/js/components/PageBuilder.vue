@@ -1,8 +1,10 @@
 <template>
     <div class="flex flex-wrap mx-auto">
-        <div v-for="(component, index) in chosenElements" v-bind:key="index" class="w-full p-4 m-4 border-2 border-purple-800 rounded">
+        <div v-for="(component, index) in chosenElements" v-bind:key="index" class="relative w-full flex items-center justify-center p-4 m-4 border-2 border-purple-800 rounded">
+            <span @click="removeElement(element)" class="absolute flex items-center justify-center top-0 right-0 -mt-4 -mr-4 px-4 py-2 bg-red-600 text-white font-bold rounded-full shadow">X</span>
             <component
                 :is="chosenElements[index]"
+                :id="component + '-' + index"
                 class="w-full"
             />
         </div>

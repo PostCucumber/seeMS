@@ -2229,6 +2229,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -20986,12 +20988,28 @@ var render = function() {
           "div",
           {
             key: index,
-            staticClass: "w-full p-4 m-4 border-2 border-purple-800 rounded"
+            staticClass:
+              "relative w-full flex items-center justify-center p-4 m-4 border-2 border-purple-800 rounded"
           },
           [
+            _c(
+              "span",
+              {
+                staticClass:
+                  "absolute flex items-center justify-center top-0 right-0 -mt-4 -mr-4 px-4 py-2 bg-red-600 text-white font-bold rounded-full shadow",
+                on: {
+                  click: function($event) {
+                    return _vm.removeElement(_vm.element)
+                  }
+                }
+              },
+              [_vm._v("X")]
+            ),
+            _vm._v(" "),
             _c(_vm.chosenElements[index], {
               tag: "component",
-              staticClass: "w-full"
+              staticClass: "w-full",
+              attrs: { id: component + "-" + index }
             })
           ],
           1
