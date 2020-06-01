@@ -21056,7 +21056,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "w-full flex flex-wrap justify-center mx-auto pt-10" },
+    {
+      staticClass:
+        "w-full flex flex-wrap justify-center items-center mx-auto pt-10"
+    },
     [
       _c("h2", { staticClass: "text-center w-full" }, [_vm._v("Rows")]),
       _vm._v(" "),
@@ -21064,7 +21067,7 @@ var render = function() {
         "button",
         {
           staticClass:
-            "w-20 mr-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 border rounded-lg",
+            "w-20 mr-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none mt-4 w-16 h-16 border rounded-lg",
           on: {
             click: function($event) {
               return _vm.addRow()
@@ -21078,7 +21081,7 @@ var render = function() {
         "button",
         {
           staticClass:
-            "w-20 ml-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none pb-4 mt-4 w-16 h-16 border rounded-lg",
+            "w-20 ml-2 flex items-center justify-center text-gray-400 hover:text-gray-800 hover:border-gray-800 focus:outline-none mt-4 w-16 h-16 border rounded-lg",
           attrs: { disabled: _vm.rowCount < 1 },
           on: {
             click: function($event) {
