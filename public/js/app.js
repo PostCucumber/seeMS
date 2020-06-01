@@ -21056,7 +21056,7 @@ var render = function() {
                     staticClass: "px-4 py-2 border rounded-full",
                     on: {
                       click: function($event) {
-                        this.confirming = false
+                        return _vm.closeWindow()
                       }
                     }
                   },
