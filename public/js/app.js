@@ -2116,15 +2116,25 @@ __webpack_require__.r(__webpack_exports__);
 
           _this2.removeHighlight(box);
 
-          _this2.boxesInRow.push(count);
+          _this2.boxesInRow.push(_this2.selectedBoxes[count]);
         } else {
           console.log(box + " is not in this row");
         }
 
         ++count;
       });
-      this.boxesInRow.forEach(function (box) {
-        _this2.selectedBoxes.splice(box, 1);
+      count = 0;
+      this.selectedBoxes.forEach(function (box) {
+        _this2.boxesInRow.forEach(function (boxToBeDeleted) {
+          if (box = boxToBeDeleted) {
+            console.log("deleting " + _this2.selectedBoxes[count]);
+            _this2.selectedBoxes[count] = 0;
+          } else {
+            console.log(_this2.selectedBoxes[count] + "Does not need to be deleted");
+          }
+        });
+
+        ++count;
       });
     }
   }

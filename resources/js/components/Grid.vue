@@ -80,16 +80,27 @@
                     if(box >= min && box <= max) {
                         console.log(box + " is in this row")
                         this.removeHighlight(box);
-                        this.boxesInRow.push(count);
+                        this.boxesInRow.push(this.selectedBoxes[count]);
                     } else {
                         console.log(box + " is not in this row")
                     }
                     ++count
                 });
                 
-                this.boxesInRow.forEach(box => {
-                    this.selectedBoxes.splice(box, 1);
+                count = 0;
+
+                this.selectedBoxes.forEach(box => {
+                    this.boxesInRow.forEach(boxToBeDeleted => {
+                        if(box = boxToBeDeleted) {
+                            console.log("deleting " + this.selectedBoxes[count]);
+                            this.selectedBoxes[count] = 0;
+                        } else {
+                            console.log(this.selectedBoxes[count] + "Does not need to be deleted")
+                        }
+                    });
+                    ++count;
                 });
+
             }
         },
     }
