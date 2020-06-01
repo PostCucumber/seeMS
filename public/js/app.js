@@ -2228,6 +2228,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2238,8 +2239,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    elements: Array //element: String
-
+    elements: Array
   },
   data: function data() {
     return {
@@ -20982,11 +20982,20 @@ var render = function() {
     { staticClass: "flex flex-wrap mx-auto" },
     [
       _vm._l(_vm.chosenElements, function(component, index) {
-        return _c(_vm.chosenElements[index], {
-          key: index,
-          tag: "component",
-          staticClass: "w-full"
-        })
+        return _c(
+          "div",
+          {
+            key: index,
+            staticClass: "w-full p-4 m-4 border-2 border-purple-800 rounded"
+          },
+          [
+            _c(_vm.chosenElements[index], {
+              tag: "component",
+              staticClass: "w-full"
+            })
+          ],
+          1
+        )
       }),
       _vm._v(" "),
       _c("grid", {

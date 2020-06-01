@@ -1,10 +1,11 @@
 <template>
     <div class="flex flex-wrap mx-auto">
-        <component
-            v-for="(component, index) in chosenElements"
-            v-bind:key="index" :is="chosenElements[index]"
-            class="w-full"
-        />
+        <div v-for="(component, index) in chosenElements" v-bind:key="index" class="w-full p-4 m-4 border-2 border-purple-800 rounded">
+            <component
+                :is="chosenElements[index]"
+                class="w-full"
+            />
+        </div>
         <grid
             ref="grid"
             v-bind:selected-boxes="selectedBoxes"
