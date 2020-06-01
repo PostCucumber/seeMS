@@ -2049,7 +2049,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       BOXES_PER_ROW: 12,
-      boxesInRow: []
+      boxesInRow: [],
+      newList: []
     };
   },
   mounted: function mounted() {
@@ -2126,9 +2127,10 @@ __webpack_require__.r(__webpack_exports__);
       count = 0;
       this.selectedBoxes.forEach(function (box) {
         _this2.boxesInRow.forEach(function (boxToBeDeleted) {
-          if (box = boxToBeDeleted) {
-            console.log("deleting " + _this2.selectedBoxes[count]);
-            _this2.selectedBoxes[count] = 0;
+          if (box != boxToBeDeleted) {
+            console.log("Adding to new list: " + _this2.selectedBoxes[count]);
+
+            _this2.newList.push(_this2.selectedBoxes[count]);
           } else {
             console.log(_this2.selectedBoxes[count] + "Does not need to be deleted");
           }
@@ -2136,6 +2138,7 @@ __webpack_require__.r(__webpack_exports__);
 
         ++count;
       });
+      console.log("New list: " + newList);
     }
   }
 });

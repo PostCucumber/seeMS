@@ -17,7 +17,8 @@
         data: function() {
             return {
                 BOXES_PER_ROW: 12,
-                boxesInRow: []
+                boxesInRow: [],
+                newList: []
             };
         },
         mounted() {
@@ -91,16 +92,16 @@
 
                 this.selectedBoxes.forEach(box => {
                     this.boxesInRow.forEach(boxToBeDeleted => {
-                        if(box = boxToBeDeleted) {
-                            console.log("deleting " + this.selectedBoxes[count]);
-                            this.selectedBoxes[count] = 0;
+                        if(box != boxToBeDeleted) {
+                            console.log("Adding to new list: " + this.selectedBoxes[count]);
+                            this.newList.push(this.selectedBoxes[count]);
                         } else {
                             console.log(this.selectedBoxes[count] + "Does not need to be deleted")
                         }
                     });
                     ++count;
                 });
-
+                console.log("New list: " + newList);
             }
         },
     }
