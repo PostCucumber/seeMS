@@ -2273,6 +2273,9 @@ __webpack_require__.r(__webpack_exports__);
     addElement: function addElement(element) {
       this.chosenElements.push(element);
     },
+    removeElement: function removeElement(index) {
+      this.chosenElements.splice(index, 1);
+    },
     removeBox: function removeBox(id) {
       for (var i = 0; i < this.selectedBoxes.length; ++i) {
         if (id == this.selectedBoxes[i]) {
@@ -20996,10 +20999,10 @@ var render = function() {
               "span",
               {
                 staticClass:
-                  "absolute flex items-center justify-center top-0 right-0 -mt-4 -mr-4 px-4 py-2 bg-red-600 text-white font-bold rounded-full shadow",
+                  "absolute flex items-center justify-center top-0 right-0 -mt-4 -mr-4 px-4 py-2 bg-red-600 text-white font-bold cursor-pointer rounded-full shadow",
                 on: {
                   click: function($event) {
-                    return _vm.removeElement(_vm.element)
+                    return _vm.removeElement(index)
                   }
                 }
               },
@@ -21009,7 +21012,7 @@ var render = function() {
             _c(_vm.chosenElements[index], {
               tag: "component",
               staticClass: "w-full",
-              attrs: { id: component + "-" + index }
+              attrs: { id: index }
             })
           ],
           1

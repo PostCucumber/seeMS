@@ -1,10 +1,10 @@
 <template>
     <div class="flex flex-wrap mx-auto">
         <div v-for="(component, index) in chosenElements" v-bind:key="index" class="relative w-full flex items-center justify-center p-4 m-4 border-2 border-purple-800 rounded">
-            <span @click="removeElement(element)" class="absolute flex items-center justify-center top-0 right-0 -mt-4 -mr-4 px-4 py-2 bg-red-600 text-white font-bold rounded-full shadow">X</span>
+            <span @click="removeElement(index)" class="absolute flex items-center justify-center top-0 right-0 -mt-4 -mr-4 px-4 py-2 bg-red-600 text-white font-bold cursor-pointer rounded-full shadow">X</span>
             <component
                 :is="chosenElements[index]"
-                :id="component + '-' + index"
+                :id="index"
                 class="w-full"
             />
         </div>
@@ -83,6 +83,9 @@
             },
             addElement: function (element) {
                 this.chosenElements.push(element);
+            },
+            removeElement: function (index) {
+                this.chosenElements.splice(index,1);
             },
             removeBox: function (id) {
                 for(var i = 0; i < this.selectedBoxes.length; ++i) {
