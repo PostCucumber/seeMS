@@ -2048,7 +2048,8 @@ __webpack_require__.r(__webpack_exports__);
   props: ['rowCount', 'selectedBoxes', 'deviceSize'],
   data: function data() {
     return {
-      BOXES_PER_ROW: 12
+      BOXES_PER_ROW: 12,
+      boxesInRow: []
     };
   },
   mounted: function mounted() {
@@ -2093,6 +2094,38 @@ __webpack_require__.r(__webpack_exports__);
         _this.removeHighlight(id);
       });
       this.selectedBoxes.splice(0, this.selectedBoxes.length);
+    },
+    clearRow: function clearRow() {
+      var _this2 = this;
+
+      //rowCount is the row we're dealing with
+      //we only want to dehighlight and remove boxes in the row
+      //the rows are broken up into 12 boxes each
+      //may have to have seperate conditonals for each screen size
+      //if a box is selected and it is in this row, then deselect it
+      // 1 0-11
+      // 2 12-23
+      var min = this.rowCount * 12 - 12;
+      var max = this.rowCount * 12 - 1;
+      var count = 0;
+      this.selectedBoxes.forEach(function (box) {
+        console.log(count);
+
+        if (box >= min && box <= max) {
+          console.log(box + " is in this row");
+
+          _this2.removeHighlight(box);
+
+          _this2.boxesInRow.push(count);
+        } else {
+          console.log(box + " is not in this row");
+        }
+
+        ++count;
+      });
+      this.boxesInRow.forEach(function (box) {
+        _this2.selectedBoxes.splice(box, 1);
+      });
     }
   }
 });
@@ -2282,6 +2315,7 @@ __webpack_require__.r(__webpack_exports__);
       ++this.rowCount;
     },
     removeRow: function removeRow() {
+      this.$refs.grid.clearRow();
       --this.rowCount;
     },
     togglePicker: function togglePicker() {
@@ -20835,11 +20869,7 @@ var render = function() {
             : _vm._e(),
           _vm._v(" "),
           _vm.boxIsHighlighted(index)
-            ? _c(
-                "p",
-                { staticClass: "text-white", on: { click: this.clearRow } },
-                [_vm._v("–")]
-              )
+            ? _c("p", { staticClass: "text-white" }, [_vm._v("–")])
             : _vm._e()
         ]
       )

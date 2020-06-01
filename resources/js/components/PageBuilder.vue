@@ -94,6 +94,7 @@
                 ++this.rowCount;
             },
             removeRow: function () {
+                this.$refs.grid.clearRow();
                 --this.rowCount;
             },
             togglePicker: function () {
@@ -107,7 +108,7 @@
             },
             clearGrid: function () {
                 this.$refs.grid.clearGrid();
-            }
+            },
         },
         mounted() {
             console.log('Page Builder component mounted.')

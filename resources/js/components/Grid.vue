@@ -2,7 +2,7 @@
     <div class="flex flex-wrap items-start w-full">
         <button @click="toggleSelected(index)" v-for="(box, index) in rowCount*BOXES_PER_ROW" v-bind:key="index" :id="index" class="relative xl:w-1/12 lg:w-1/6 md:w-1/4 w-1/2 h-32 border-r border-b border-gray-400 font-thin hover:font-bold text-purple-800 focus:outline-none cursor-pointer">
             <p v-if="!boxIsHighlighted(index)" class="text-purple-800">+</p>
-            <p v-if="boxIsHighlighted(index)" @click="this.clearRow" class="text-white">&ndash;</p>
+            <p v-if="boxIsHighlighted(index)" class="text-white">&ndash;</p>
         </button>
     </div>
 </template>
@@ -16,7 +16,8 @@
         ],
         data: function() {
             return {
-                BOXES_PER_ROW: 12
+                BOXES_PER_ROW: 12,
+                boxesInRow: []
             };
         },
         mounted() {
@@ -59,6 +60,37 @@
                 });
                 this.selectedBoxes.splice(0, this.selectedBoxes.length);
             },
+            clearRow: function () {
+                //rowCount is the row we're dealing with
+                //we only want to dehighlight and remove boxes in the row
+                //the rows are broken up into 12 boxes each
+                //may have to have seperate conditonals for each screen size
+                //if a box is selected and it is in this row, then deselect it
+                // 1 0-11
+                // 2 12-23
+
+                var min = this.rowCount*12-12;
+                var max = this.rowCount*12-1;
+
+                var count = 0
+
+
+                this.selectedBoxes.forEach(box => {
+                    console.log(count);
+                    if(box >= min && box <= max) {
+                        console.log(box + " is in this row")
+                        this.removeHighlight(box);
+                        this.boxesInRow.push(count);
+                    } else {
+                        console.log(box + " is not in this row")
+                    }
+                    ++count
+                });
+                
+                this.boxesInRow.forEach(box => {
+                    this.selectedBoxes.splice(box, 1);
+                });
+            }
         },
     }
 </script>
