@@ -18332,9 +18332,8 @@ h4 {
   }
 }
 
-h4 {
-  font-size: 1.25rem;
-  font-weight: 600;
+.text-shadow {
+  text-shadow: 1px 2px 1px rgba(0,0,0,0.75);
 }
 
 @media (min-width: 28em) {

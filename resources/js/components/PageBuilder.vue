@@ -8,13 +8,13 @@
                 class="w-full"
             />
         </div>
-        <div v-if="confirming" class="absolute z-50 flex items-center justify-center mx-auto">
-            <div class="m-10 bg-white shadow rounded p-10">
-                <p class="mb-4">Are you sure you want to do this?</p>
-                <button @click="closeWindow()" class="px-4 py-2 border rounded-full">No</button>
-                <button @click="clearGrid(); closeWindow()" class="inline px-4 py-2 border rounded-full">Yes</button>
-            </div>
-        </div>
+        <confirmation-box
+            v-if="confirming"
+            ref="confirmation"
+            @closeConfirmation="closeConfirmation"
+            @clearGrid="clearGrid"
+        >
+        </confirmation-box>
         <grid
             ref="grid"
             v-bind:selected-boxes="selectedBoxes"
@@ -57,6 +57,7 @@
     import columns from './elements/Columns'
     import SearchBox from './elements/SearchBox'
     import navigation from './elements/Navigation'
+    import ConfirmationBox from './ConfirmationBox'
 
     export default {
         props: {
@@ -83,7 +84,8 @@
             RowControl,
             ElementPicker,
             ElementHelper,
-            InfoBar
+            InfoBar,
+            ConfirmationBox
         },
         methods: {
             addBox: function (id) {
@@ -145,7 +147,7 @@
             getConfirmation: function () {
                 this.confirming = true;
             },
-            closeWindow: function () {
+            closeConfirmation: function () {
                 this.confirming = false;
             },
             clearGrid: function () {

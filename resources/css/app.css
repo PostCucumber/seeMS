@@ -163,13 +163,6 @@ h4 {
     }
 }
 
-
-
-
-
-
-
-h4 {
-    @apply text-xl;
-    @apply font-semibold;
-}
+.text-shadow {
+    text-shadow: 1px 2px 1px rgba(0,0,0,0.75);
+  }

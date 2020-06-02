@@ -1899,6 +1899,43 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmationBox.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ConfirmationBox.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: [],
+  mounted: function mounted() {
+    console.log('Confirmation Box component mounted.');
+  },
+  methods: {
+    closeWindow: function closeWindow() {
+      this.$emit('closeConfirmation');
+    },
+    clearGrid: function clearGrid() {
+      this.$emit('clearGrid');
+      this.$emit('closeConfirmation');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ElementHelper.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ElementHelper.vue?vue&type=script&lang=js& ***!
@@ -2196,6 +2233,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elements_Columns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./elements/Columns */ "./resources/js/components/elements/Columns.vue");
 /* harmony import */ var _elements_SearchBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./elements/SearchBox */ "./resources/js/components/elements/SearchBox.vue");
 /* harmony import */ var _elements_Navigation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./elements/Navigation */ "./resources/js/components/elements/Navigation.vue");
+/* harmony import */ var _ConfirmationBox__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ConfirmationBox */ "./resources/js/components/ConfirmationBox.vue");
 //
 //
 //
@@ -2246,6 +2284,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -2279,7 +2318,8 @@ __webpack_require__.r(__webpack_exports__);
     RowControl: _RowControl__WEBPACK_IMPORTED_MODULE_1__["default"],
     ElementPicker: _ElementPicker__WEBPACK_IMPORTED_MODULE_2__["default"],
     ElementHelper: _ElementHelper__WEBPACK_IMPORTED_MODULE_3__["default"],
-    InfoBar: _InfoBar__WEBPACK_IMPORTED_MODULE_4__["default"]
+    InfoBar: _InfoBar__WEBPACK_IMPORTED_MODULE_4__["default"],
+    ConfirmationBox: _ConfirmationBox__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
   methods: {
     addBox: function addBox(id) {
@@ -2339,7 +2379,7 @@ __webpack_require__.r(__webpack_exports__);
     getConfirmation: function getConfirmation() {
       this.confirming = true;
     },
-    closeWindow: function closeWindow() {
+    closeConfirmation: function closeConfirmation() {
       this.confirming = false;
     },
     clearGrid: function clearGrid() {
@@ -20708,6 +20748,58 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmationBox.vue?vue&type=template&id=3b72fa8a&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ConfirmationBox.vue?vue&type=template&id=3b72fa8a& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "absolute z-50 flex items-center justify-center mx-auto" },
+    [
+      _c("div", { staticClass: "m-10 bg-white shadow rounded p-10" }, [
+        _c("p", { staticClass: "mb-4" }, [
+          _vm._v("Are you sure you want to do this?")
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "px-4 py-2 border rounded-full",
+            on: { click: this.closeWindow }
+          },
+          [_vm._v("No")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "inline px-4 py-2 border rounded-full",
+            on: { click: this.clearGrid }
+          },
+          [_vm._v("Yes")]
+        )
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ElementHelper.vue?vue&type=template&id=4a08146f&":
 /*!****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ElementHelper.vue?vue&type=template&id=4a08146f& ***!
@@ -21042,47 +21134,13 @@ var render = function() {
       }),
       _vm._v(" "),
       _vm.confirming
-        ? _c(
-            "div",
-            {
-              staticClass:
-                "absolute z-50 flex items-center justify-center mx-auto"
-            },
-            [
-              _c("div", { staticClass: "m-10 bg-white shadow rounded p-10" }, [
-                _c("p", { staticClass: "mb-4" }, [
-                  _vm._v("Are you sure you want to do this?")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "px-4 py-2 border rounded-full",
-                    on: {
-                      click: function($event) {
-                        return _vm.closeWindow()
-                      }
-                    }
-                  },
-                  [_vm._v("No")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "inline px-4 py-2 border rounded-full",
-                    on: {
-                      click: function($event) {
-                        _vm.clearGrid()
-                        _vm.closeWindow()
-                      }
-                    }
-                  },
-                  [_vm._v("Yes")]
-                )
-              ])
-            ]
-          )
+        ? _c("confirmation-box", {
+            ref: "confirmation",
+            on: {
+              closeConfirmation: _vm.closeConfirmation,
+              clearGrid: _vm.clearGrid
+            }
+          })
         : _vm._e(),
       _vm._v(" "),
       _c("grid", {
@@ -33563,6 +33621,75 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/ConfirmationBox.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/ConfirmationBox.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ConfirmationBox_vue_vue_type_template_id_3b72fa8a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ConfirmationBox.vue?vue&type=template&id=3b72fa8a& */ "./resources/js/components/ConfirmationBox.vue?vue&type=template&id=3b72fa8a&");
+/* harmony import */ var _ConfirmationBox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ConfirmationBox.vue?vue&type=script&lang=js& */ "./resources/js/components/ConfirmationBox.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ConfirmationBox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ConfirmationBox_vue_vue_type_template_id_3b72fa8a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ConfirmationBox_vue_vue_type_template_id_3b72fa8a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ConfirmationBox.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/ConfirmationBox.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/ConfirmationBox.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationBox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ConfirmationBox.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmationBox.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationBox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ConfirmationBox.vue?vue&type=template&id=3b72fa8a&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/ConfirmationBox.vue?vue&type=template&id=3b72fa8a& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationBox_vue_vue_type_template_id_3b72fa8a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ConfirmationBox.vue?vue&type=template&id=3b72fa8a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ConfirmationBox.vue?vue&type=template&id=3b72fa8a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationBox_vue_vue_type_template_id_3b72fa8a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationBox_vue_vue_type_template_id_3b72fa8a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
