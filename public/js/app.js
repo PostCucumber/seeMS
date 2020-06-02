@@ -2284,6 +2284,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -21120,7 +21125,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("X")]
+              [_vm._v("\n            X\n        ")]
             ),
             _vm._v(" "),
             _c(_vm.chosenElements[index], {
