@@ -20763,14 +20763,14 @@ var render = function() {
         "div",
         {
           staticClass:
-            "absolute flex flex-wrap items-center justify-center 2xl:h-56 2xl:w-56 xl:h-48 xl:w-48 lg:h-40 lg:w-40 h-32 w-32 mr-8 bottom-0 right-0 leading-none text-white text-center rounded-lg shadow bg-purple-800"
+            "absolute flex flex-wrap items-center justify-center opacity-75 2xl:h-56 2xl:w-56 xl:h-48 xl:w-48 lg:h-40 lg:w-40 h-32 w-32 mr-8 bottom-0 right-0 leading-none text-white text-center rounded-lg shadow bg-purple-800"
         },
         [
           _c("h2", { staticClass: "uppercase w-full -mb-12" }, [
             _vm._v(_vm._s(_vm.deviceSize))
           ]),
           _vm._v(" "),
-          _c("span", { staticClass: "w-full px-2" }, [
+          _c("h3", { staticClass: "w-full px-2" }, [
             _vm._v(_vm._s(_vm.sizeDescription))
           ])
         ]

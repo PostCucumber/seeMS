@@ -10,9 +10,9 @@
                 </ElementPicker>
             </div>
         </div>
-        <div class="absolute flex flex-wrap items-center justify-center 2xl:h-56 2xl:w-56 xl:h-48 xl:w-48 lg:h-40 lg:w-40 h-32 w-32 mr-8 bottom-0 right-0 leading-none text-white text-center rounded-lg shadow bg-purple-800">
+        <div class="absolute flex flex-wrap items-center justify-center opacity-75 2xl:h-56 2xl:w-56 xl:h-48 xl:w-48 lg:h-40 lg:w-40 h-32 w-32 mr-8 bottom-0 right-0 leading-none text-white text-center rounded-lg shadow bg-purple-800">
             <h2 class="uppercase w-full -mb-12">{{ deviceSize }}</h2>
-            <span class="w-full px-2">{{ sizeDescription }}</span>
+            <h3 class="w-full px-2">{{ sizeDescription }}</h3>
         </div>
     </div>
 </template>
