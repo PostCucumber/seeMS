@@ -4,10 +4,47 @@
 
 @tailwind utilities;
 
+body {
+    @apply text-sm;
+    @apply leading-none;
+}
+h1 {
+    @apply text-3xl;
+    @apply font-thin;
+}
+h2 {
+    @apply text-2xl;
+    @apply font-semibold;
+}
+h3 {
+    @apply text-xl;
+    @apply font-thin;
+}
+h4 {
+    @apply text-lg;
+    @apply font-semibold;
+}
+
 @screen sm {
     body {
         @apply text-sm;
         @apply leading-none;
+    }
+    h1 {
+        @apply text-3xl;
+        @apply font-thin;
+    }
+    h2 {
+        @apply text-2xl;
+        @apply font-semibold;
+    }
+    h3 {
+        @apply text-xl;
+        @apply font-thin;
+    }
+    h4 {
+        @apply text-lg;
+        @apply font-semibold;
     }
 }
 
@@ -16,12 +53,44 @@
         @apply text-base;
         @apply leading-tight;
     }
+    h1 {
+        @apply text-4xl;
+        @apply font-thin;
+    }
+    h2 {
+        @apply text-3xl;
+        @apply font-semibold;
+    }
+    h3 {
+        @apply text-2xl;
+        @apply font-thin;
+    }
+    h4 {
+        @apply text-xl;
+        @apply font-semibold;
+    }
 }
 
 @screen lg {
     body {
         @apply text-lg;
         @apply leading-snug;
+    }
+    h1 {
+        @apply text-5xl;
+        @apply font-thin;
+    }
+    h2 {
+        @apply text-4xl;
+        @apply font-semibold;
+    }
+    h3 {
+        @apply text-3xl;
+        @apply font-thin;
+    }
+    h4 {
+        @apply text-2xl;
+        @apply font-semibold;
     }
 }
 
@@ -30,12 +99,44 @@
         @apply text-xl;
         @apply leading-normal;
     }
+    h1 {
+        @apply text-5xl;
+        @apply font-thin;
+    }
+    h2 {
+        @apply text-4xl;
+        @apply font-semibold;
+    }
+    h3 {
+        @apply text-3xl;
+        @apply font-thin;
+    }
+    h4 {
+        @apply text-2xl;
+        @apply font-semibold;
+    }
 }
 
 @screen 2xl {
     body {
         @apply text-2xl;
         @apply leading-relaxed;
+    }
+    h1 {
+        @apply text-6xl;
+        @apply font-thin;
+    }
+    h2 {
+        @apply text-5xl;
+        @apply font-semibold;
+    }
+    h3 {
+        @apply text-4xl;
+        @apply font-thin;
+    }
+    h4 {
+        @apply text-3xl;
+        @apply font-semibold;
     }
 }
 
@@ -44,22 +145,29 @@
         @apply text-3xl;
         @apply leading-loose;
     }
+    h1 {
+        @apply text-6xl;
+        @apply font-thin;
+    }
+    h2 {
+        @apply text-5xl;
+        @apply font-semibold;
+    }
+    h3 {
+        @apply text-4xl;
+        @apply font-thin;
+    }
+    h4 {
+        @apply text-3xl;
+        @apply font-semibold;
+    }
 }
 
-h1 {
-    @apply text-5xl;
-    @apply font-thin;
-}
 
-h2 {
-    @apply text-3xl;
-    @apply font-semibold;
-}
 
-h3 {
-    @apply text-2xl;
-    @apply font-thin;
-}
+
+
+
 
 h4 {
     @apply text-xl;
