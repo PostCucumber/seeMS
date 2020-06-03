@@ -45,7 +45,7 @@
                     }
                 }
                 this.fadeScreen();
-                setTimeout(() => {  window.location.href="/builder/1"; }, 2000);
+                setTimeout(() => {  window.location.href="/builder/1"; }, 900);
             },
             fadeScreen: function () {
                 var page = document.getElementById("app");
@@ -55,14 +55,25 @@
                     if (opacity < 0) {
                         clearInterval(fade);
                     } else {
-                        opacity = opacity - opacity/100;
+                        opacity = opacity - opacity/40;
                         page.style.opacity = opacity;
                     }
                 }
             }
         },
         mounted() {
-            console.log('Splash Page component mounted.')
+            console.log('Splash Page component mounted.');
+            var page = document.getElementById("app");
+            var opacity = 0.00001;
+            var fade = setInterval(frame, 10);
+            function frame () {
+                if (opacity > 1) {
+                    clearInterval(fade);
+                } else {
+                    opacity = opacity*1.1;
+                    page.style.opacity = opacity;
+                }
+            }
         },
     }
 </script>
