@@ -45,7 +45,7 @@
                     }
                 }
                 this.fadeScreen();
-                setTimeout(() => {  window.location.href="/builder/1"; }, 900);
+                setTimeout(() => {  window.location.href="/builder/1"; }, 2500);
             },
             fadeScreen: function () {
                 var page = document.getElementById("app");
@@ -55,7 +55,7 @@
                     if (opacity < 0) {
                         clearInterval(fade);
                     } else {
-                        opacity = opacity - opacity/40;
+                        opacity = opacity - opacity/50;
                         page.style.opacity = opacity;
                     }
                 }

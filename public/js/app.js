@@ -2505,7 +2505,7 @@ __webpack_require__.r(__webpack_exports__);
       this.fadeScreen();
       setTimeout(function () {
         window.location.href = "/builder/1";
-      }, 900);
+      }, 2500);
     },
     fadeScreen: function fadeScreen() {
       var page = document.getElementById("app");
@@ -2516,7 +2516,7 @@ __webpack_require__.r(__webpack_exports__);
         if (opacity < 0) {
           clearInterval(fade);
         } else {
-          opacity = opacity - opacity / 40;
+          opacity = opacity - opacity / 50;
           page.style.opacity = opacity;
         }
       }
