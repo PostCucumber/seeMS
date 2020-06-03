@@ -160,7 +160,18 @@
             },
         },
         mounted() {
-            console.log('Page Builder component mounted.')
+            console.log('Page Builder component mounted.');
+            var page = document.getElementById("app");
+            var opacity = 0.00001;
+            var fade = setInterval(frame, 10);
+            function frame () {
+                if (opacity > 1) {
+                    clearInterval(fade);
+                } else {
+                    opacity = opacity*1.1;
+                    page.style.opacity = opacity;
+                }
+            }
         },
     }
 </script>

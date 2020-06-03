@@ -21,6 +21,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.component('splash-page', require('./components/SplashPage.vue').default);
 Vue.component('page-builder', require('./components/PageBuilder.vue').default);
 Vue.component('page', require('./components/Page.vue').default);
 Vue.component('columns', require('./components/elements/Columns.vue').default);
