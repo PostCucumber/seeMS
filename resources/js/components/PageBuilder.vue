@@ -162,7 +162,7 @@
         mounted() {
             console.log('Page Builder component mounted.');
             var page = document.getElementById("app");
-            var opacity = 0.00001;
+            var opacity = 0.01;
             var fade = setInterval(frame, 10);
             function frame () {
                 if (opacity > 1) {
